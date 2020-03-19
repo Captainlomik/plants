@@ -1,0 +1,15 @@
+p 
+{
+    font-size: 16px;
+    font-weight: 400;
+    color:grey;
+    text-align: center;
+    margin: 1em auto;
+}
+
+.footer 
+{
+    border-top:1px solid #80B435;
+    width: 100%;
+    margin: 3em auto;
+}

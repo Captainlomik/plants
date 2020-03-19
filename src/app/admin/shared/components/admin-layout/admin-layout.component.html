@@ -1,0 +1,13 @@
+<div class="menuWrap">
+    <a href=""><img src="assets/img/logo.png" alt=""></a>
+    <div class="menuFlex">
+    <ul>
+   <li> <a href="" [routerLink]="'/admin/dashboard'" routerLinkActive="active">Контент</a></li>
+   <li><a href="" [routerLink]="'/admin/account'" routerLinkActive="active">Участники</a></li> 
+   <li> <a href="" [routerLink]="'/admin/add'" routerLinkActive="active">Добавить</a></li>
+    <li><a href="" [routerLink]="'/admin/order'" routerLinkActive="active">Заказы</a></li>
+</ul></div>
+</div>
+<div class="cont">
+<router-outlet></router-outlet>
+</div>

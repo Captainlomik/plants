@@ -1,0 +1,58 @@
+.header {
+  background-image: url('/assets/img/catalog_header.png');
+  margin: 0;
+  height: 500px;
+  background-repeat: no-repeat;
+  -moz-background-size: 100%;
+  /* Firefox 3.6+ */
+  -webkit-background-size: 100%;
+  /* Safari 3.1+ и Chrome 4.0+ */
+  -o-background-size: 100%;
+  /* Opera 9.6+ */
+  background-size: 100%;
+  background-position: center;
+}
+
+.header h2
+{
+  text-align:center;
+  margin-top: 2em;
+  margin-left: 3em;
+  color: white;
+  font-weight: 500;
+  font-size: 60px;
+}
+
+.btn 
+{
+  border-bottom: 1px solid #80B435;
+  border-radius:0 ;
+  padding: 0 1em;
+}
+.sortWrap
+{
+  display: flex;
+  margin: 2em auto;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+.filterWrap 
+{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+}
+
+.sortWrap input 
+{
+  border: 1px solid #80B435;
+  border-radius: 10px;
+}
+
+.sortWrap input:focus, .sortWrap input:hover
+{
+  outline:none;
+  border-radius: 10px;
+}

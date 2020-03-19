@@ -1,0 +1,46 @@
+.menuWrap 
+{
+    width: 200px;
+    background-color: #80B435;
+    height:100vh;
+    position: fixed;
+    top:0;
+    left: 0;
+   
+}
+
+.menuWrap a 
+{
+    color: white;
+    font-size: 22px;
+    font-weight:300;
+    font-family: 'Roboto';
+    align-items: center;
+}
+ul li 
+{
+    padding:1em 0;
+}
+
+.menuFlex 
+{
+    display: flex;
+    align-items: center;
+    height:90vh;
+}
+.menuWrap ul 
+{
+   width: 90%;
+ list-style: none;
+ margin: 1em auto;
+}
+.menuWrap img 
+{
+    margin: 2em 1em;
+}
+
+.cont 
+{
+    margin-left:250px;
+   
+}

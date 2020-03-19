@@ -1,0 +1,162 @@
+.header {
+    background-image: url('/assets/img/mainBackground2.png');
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    -moz-background-size: 100%;
+    /* Firefox 3.6+ */
+    -webkit-background-size: 100%;
+    /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%;
+    /* Opera 9.6+ */
+    background-size: 100%;
+  }
+  
+ .line
+ {margin: 5em auto;
+   height: 90px;
+   width: 15px;
+  border-left: 2px solid #80B435; 
+ }
+ .about-wrap, .sent-wrap
+ {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   align-items: center;
+ }
+
+ .about-text, .sent-text
+ {
+   width: 30%;
+   text-align: center;
+   margin-left: 5em;
+   margin-right: 5em;
+   
+ }
+
+ .about-text p, .about-text p
+ {margin-top: 3em;
+   text-align: center;
+ }
+
+.contacts-wrap img
+{
+  margin-left: 2em;
+  padding: 5px;
+  border: 1px solid #80B435;
+  border-radius: 30px;
+}
+.contacts-wrap img:hover
+{
+  border: 1px dotted green;
+  border-radius: 30px;
+}
+
+/*------Products------*/
+.products h2
+{
+ text-align: center;
+}
+
+.products a
+{
+width: 200px;
+height: 40px;
+background: #80B435;
+border-radius: 50px;
+display: block;
+color: white;
+padding-top: 5px;
+border: 2px solid #80B435;
+font-size: 18px;
+margin: 0 auto;
+}
+.products a:hover
+{
+  background: #ffff;
+  border: 2px solid #80B435;
+  color: #80B435;
+}
+
+/*--------BLOCK-------*/
+.block-wrap
+{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  background: #F7F8F7;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
+  width: 80%;
+  margin: 0 auto;
+  height: 170px;
+}
+
+.block
+{margin-top: 2em;
+  text-align: center;
+  width: 35%;
+}
+
+.block p
+{
+font-size: 16px;
+color: grey;
+}
+.block-wrap .block1::before
+{
+  content: ' ';
+  border-left: 2px solid #80B435;
+  height:100px;
+float: right;
+ margin-left: 2em;
+}
+
+/*-------CONTACTS---------*/
+.contact-wrap
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.info-wrap 
+{
+  width: 40%;
+}
+.contact-form a
+{
+width: 200px;
+height: 40px;
+background: #ffff;
+border-radius: 50px;
+display: block;
+color: #80B435;
+padding-top: 5px;
+border: 2px solid #80B435;
+font-size: 18px;
+margin: 0;
+}
+.contact-form a:hover
+{
+  background: #80B435;
+  border: 2px solid #80B435;
+  color: #ffffff;
+}
+
+.contact-form input {
+  width: 70%;
+  outline: none;
+  border: none;
+  border-bottom: solid 2px #80B435;
+  background-color: #F7F8F7;
+  margin: 2em 0;
+  font-size: 20px;
+  }
+  .info-wrap h3
+  {
+    margin-top: 3vh;
+  }
+  .about-cotacts
+  {
+    margin-top:3em;
+  }
