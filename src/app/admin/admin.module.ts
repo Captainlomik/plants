@@ -7,8 +7,6 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
 import { OrderPageComponent } from './order-page/order-page.component';
 import { AddPageComponent } from './add-page/add-page.component';
 import { AccountPageComponent } from './account-page/account-page.component';
-import { NotFoundComponent } from '../not-found/not-found.component';
-
 
 
 @NgModule({
@@ -27,7 +25,7 @@ import { NotFoundComponent } from '../not-found/not-found.component';
             { path: '', redirectTo: '/admin/login', pathMatch: 'full' },
             { path: 'add', component: AddPageComponent },
             { path: 'dashboard', component: DashboardPageComponent },
-            { path: 'account', component: AccountPageComponent },
+            { path: 'account', component:AccountPageComponent },
             {path:'order', component:OrderPageComponent }
           ]
         }
