@@ -16,6 +16,8 @@ import { ProductPageComponent } from './product-page/product-page.component';
 import { AdminLayoutComponent } from './admin/shared/components/admin-layout/admin-layout.component';
 import { AdminModule } from './admin/admin.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginComponent } from './login/login/login.component';
+import { RegistrationComponent } from './login/registration/registration.component';
 
 
 
@@ -28,6 +30,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     CatalogPageComponent,
     ProductPageComponent,
     NotFoundComponent,
+    LoginComponent,
+    RegistrationComponent,
+    
   ],
   imports: [
     BrowserModule,
