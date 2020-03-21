@@ -136,6 +136,24 @@ border-bottom: transparent;
     max-height: 30%;
     overflow: auto;
   }
+  .validation p
+{margin-bottom: 2em;
+    color: red;
+    font-size: 12px;
+    width: 45%;
+    margin:0 auto 1em auto;
+}
+button:disabled
+{
+    opacity:50%;
+}
+
+button:hover:disabled
+{
+    background: #80B435;
+    color: white;
+    border: 2px solid #80B435;
+}
   
   @media screen and (max-width: 700px){
     .box{
@@ -144,4 +162,5 @@ border-bottom: transparent;
     .popup{
       width: 70%;
     }
+
   }

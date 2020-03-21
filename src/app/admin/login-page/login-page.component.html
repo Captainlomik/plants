@@ -1,13 +1,19 @@
 <div class="loginAdmin">
-<div class="loginWrap">
+  <div class="loginWrap">
     <h2>Админка Plants</h2>
-    <form action="">
-<label for="login">Логин</label>
-<input type="text" id="login"><br>
-<label for="password">Пароль</label>
-<input type="password" id="password">
-<button>Войти</button>
+    <form [formGroup]="adminForm" novalidate (ngSubmit)="submit()">
+      <label for="login">Логин</label>
+      <input type="email" id="login" placeholder="email" formControlName="email">
+      <div class="validation" *ngIf="adminForm.controls['email'].invalid && adminForm.controls['email'].touched">
+        <p>Проверьте корректность данных</p>
+      </div><br>
+      <label for="password">Пароль</label>
+      <input type="password" id="password" formControlName="password">
+      <div class="validation" *ngIf="adminForm.controls['password'].invalid && adminForm.controls['password'].touched">
+        <p>Проверьте корректность ввода (минимальная длина - 6)</p>
+      </div>
+      <button type="submit" [disabled]="adminForm.invalid || submitted">Войти</button>
+    <div class="alert" *ngIf="authService.error$ | async as error">{{error}}</div>
     </form>
+  </div>
 </div>
-</div>
-

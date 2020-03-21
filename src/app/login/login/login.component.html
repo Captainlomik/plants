@@ -1,29 +1,35 @@
 <section>
-    <div class="container-xl">
+  <div class="container-xl">
     <app-header></app-header>
-</div>
-<div class="loginAdmin">
+  </div>
+  <div class="loginAdmin">
     <div class="loginWrap">
-        
-        <h2>Админка Plants</h2>
-        <form action="">
-    <label for="login">Логин</label>
-    <input type="text" id="login"><br>
-    <label for="password">Пароль</label>
-    <input type="password" id="password">
-    <button>Войти</button>
-        </form>
-        <div class="reg"><a href="/login/#popup1">Регистрация</a></div>
+
+      <h2>Админка Plants</h2>
+      <form [formGroup]="loginForm" novalidate (ngSubmit)="submit()">
+        <label for="login">Логин</label>
+        <input type="text" id="login" placeholder="email" formControlName="email">
+        <div class="validation" *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+            <p>Проверьте корректность данных</p>
+          </div><br>
+        <label for="password">Пароль</label>
+        <input type="password" id="password" formControlName="password">
+        <div class="validation" *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+            <p>Проверьте корректность данных. Минимальная длина - 6</p>
+          </div>
+        <button [disabled]='loginForm.invalid'>Войти</button>
+      </form>
+      <div class="reg"><a href="/login/#popup1">Регистрация</a></div>
     </div>
-    </div>
+  </div>
 </section>
 
 <div id="popup1" class="overlay">
-	<div class="popup">
-		<h2>Here i am</h2>
-		<a class="close" href="/login/#">&times;</a>
-		<div class="content">
-			Thank to pop me out of that button, but now i'm done so you can close this window.
-		</div>
-	</div>
+  <div class="popup">
+    <h2>Here i am</h2>
+    <a class="close" href="/login/#">&times;</a>
+    <div class="content">
+      Thank to pop me out of that button, but now i'm done so you can close this window.
+    </div>
+  </div>
 </div>

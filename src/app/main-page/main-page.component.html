@@ -1,4 +1,4 @@
-<section class="header container-xl">
+<section class="container-xl header">
   <app-header></app-header>
 </section>
 <section class="container-fluid about">
@@ -26,8 +26,8 @@
 <section class="container-fluid products">
   <div class="line"></div>
   <h2>Наша продукция</h2>
-  <div class="product">
-
+  <div class="product container-xl">
+<app-products-catalog></app-products-catalog>
   </div>
   <div class=""> <a href="" class="btn" [routerLink]="'/catalog'">Все товары ></a> </div>
 </section>
@@ -46,7 +46,7 @@
 
   </div>
 </section>
-<section class="container-fluid ">
+<section class="container-fluid blocInfo">
   <div class="line"></div>
   <div class="block-wrap">
     <div class="block block1">

@@ -6,6 +6,9 @@
    <li><a href="" [routerLink]="'/admin/account'" routerLinkActive="active">Участники</a></li> 
    <li> <a href="" [routerLink]="'/admin/add'" routerLinkActive="active">Добавить</a></li>
     <li><a href="" [routerLink]="'/admin/order'" routerLinkActive="active">Заказы</a></li>
+    <li>
+        <a href="" (click)="logout($event)">Выйти</a>
+    </li>
 </ul></div>
 </div>
 <div class="cont">
