@@ -11,6 +11,7 @@ import { Product } from '../shared/interfaces';
 })
 export class CatalogPageComponent implements OnInit {
 
+  search= '';
 products$:Observable<Product[]>;
 
   constructor(private productServices:ProductServices) { }

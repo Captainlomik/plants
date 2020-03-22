@@ -56,3 +56,17 @@
   outline:none;
   border-radius: 10px;
 }
+
+.cardWrap 
+{
+  margin:3em auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 95%;
+}
+
+.wrap 
+{
+  margin: 1em;
+}

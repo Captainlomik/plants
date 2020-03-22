@@ -8,15 +8,15 @@
   <div class="sortWrap">
     <div class="filterWrap"><p>Сортировка:</p>
     <button class="button btn">По цене</button></div>
-    <input type="text" class="input" placeholder="Найти">
+    <input type="text" class="input" placeholder="Найти" [(ngModel)]="search">
     
   </div>
 </section>
-<div class="container=xl">
-  <div class="" *ngIf="products$ | async as products; else loading">
-   
-     <app-products-catalog *ngFor="let product of products" [product]="product"></app-products-catalog>
-  </div>
+<div class="container-xl">
+  <div  *ngIf="products$ | async as products; else loading">
+   <div class="cardWrap">
+     <app-products-catalog class="wrap"  *ngFor="let product of products | searchProduct:search" [product]="product"></app-products-catalog>
+ </div> </div>
 </div>
 <ng-template #loading>
   <img src="assets/img/loader.png" alt="">

@@ -1,5 +1,8 @@
-<quill-view-html [content]="product.text"></quill-view-html>
-<p>{{product.price}}</p>
-<p>{{product.title}}</p>
-<p>{{product.count}}</p>
-<p>{{product.img}}</p>
+<div class="productCard">
+  <div [routerLink]="['/product', product.id]"> 
+    <img src="{{product.img}}" alt="">
+    <h2>{{product.title}}</h2>
+  </div>
+  <p>{{product.price}} руб</p>
+  <a href="" class="button">Заказать</a>
+</div>

@@ -23,8 +23,8 @@ import { AlertComponent } from './shared/components/alert/alert.component';
     AddPageComponent,
     AccountPageComponent,
     EditPageComponent,
-    SearchPipe,
-    AlertComponent
+    AlertComponent, 
+    SearchPipe
 ],
 
   imports: [
@@ -48,7 +48,7 @@ import { AlertComponent } from './shared/components/alert/alert.component';
     )
   ],
   exports: [RouterModule,
-    SharedModule],
+    SharedModule, SearchPipe],
   providers: [AuthGuard, AlertService]
 })
 export class AdminModule { }

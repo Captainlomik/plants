@@ -1,0 +1,44 @@
+.productCard
+{
+    border:1px solid #80b435;
+    border-radius: 20px;
+    padding:2em;
+    width: 300px;
+    height: 100%;
+   display: flex;
+   flex-direction: column;
+}
+.productCard h2 
+{
+    color: #80b435;
+    font-weight: 500;
+    text-align: center;
+    word-wrap: break-word;
+}
+.productCard p 
+{
+    text-align: center;
+    font-weight: 500;
+    margin: 0 auto;
+}
+.button
+{
+width: 100%;
+height: 40px;
+background: #ffff;
+border-radius: 50px;
+display: block;
+color: #80B435;
+padding-top: 5px;
+border: 2px solid #80B435;
+font-size: 18px;
+text-align: center;
+margin-top: auto;
+
+}
+.button:hover
+{
+  background: #80B435;
+  border: 2px solid #80B435;
+  color: #ffffff;
+}

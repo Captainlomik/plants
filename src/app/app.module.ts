@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login/login.component';
 import { RegistrationComponent } from './login/registration/registration.component';
 import { ProductsCatalogComponent } from './shared/components/products-catalog/products-catalog.component';
 import { AuthInterseptor } from './shared/auth.interceptor';
+import { SearchPipe } from './admin/shared/search.pipe';
 
 const INTERSEPTOR:Provider={
 provide:HTTP_INTERCEPTORS,
@@ -38,6 +39,7 @@ useClass:AuthInterseptor
     LoginComponent,
     RegistrationComponent,
     ProductsCatalogComponent,
+  
   ],
   imports: [
     BrowserModule,
