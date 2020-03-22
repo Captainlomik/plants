@@ -9,5 +9,16 @@
     <div class="filterWrap"><p>Сортировка:</p>
     <button class="button btn">По цене</button></div>
     <input type="text" class="input" placeholder="Найти">
+    
   </div>
 </section>
+<div class="container=xl">
+  <div class="" *ngIf="products$ | async as products; else loading">
+   
+     <app-products-catalog *ngFor="let product of products" [product]="product"></app-products-catalog>
+  </div>
+</div>
+<ng-template #loading>
+  <img src="assets/img/loader.png" alt="">
+  <h2>Загружаю</h2>
+</ng-template>

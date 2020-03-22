@@ -1,1 +1,30 @@
-<p>dashboard-page works!</p>
+<div class="container-xl">
+  <div class="contentWrap" *ngIf="products.length; else loading">
+    <h2>Контент</h2>
+    <input type="text" name="" id="" placeholder="найти" [(ngModel)]="search">
+    <div class='cardWrap' *ngFor="let product of products | searchProduct:search">
+      <div class="cardImg">{{product.img}}</div>
+      <div class="cardTxt">
+        <h2>{{product.title}}</h2>
+        <p>
+          <quill-view-html [content]="product.text"></quill-view-html>
+        </p>
+        <div class="flexWrap">
+          <div class="infoWrap">
+            <h3>Цена: {{product.price}} руб</h3>
+            <p>Количество: {{product.count}}</p>
+          </div>
+          <div class="btnWrap">
+            <a  class="button" (click)="remove(product.id)">Удалить</a> <br>
+            <a  class="button2" [routerLink]="['/admin', 'product', product.id, 'edit']">Редактировать</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+    <img src="assets/img/loader.png"  alt="">
+    <h2>Загружаю...</h2>
+</ng-template>

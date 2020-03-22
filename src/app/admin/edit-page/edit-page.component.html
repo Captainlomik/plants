@@ -1,0 +1,32 @@
+<div class="loginWrap container-xl" *ngIf="editForm; else loading">
+    <h2>Добавление товара</h2>
+    <form [formGroup]="editForm" novalidate (ngSubmit)="submit()">
+      <label for="name">Название</label>
+      <input type="text" id="name" formControlName="title">
+      <div class="validation" *ngIf="editForm.controls['title'].invalid && editForm.controls['title'].touched">
+        <p>Введите название товара</p>
+      </div><br>
+      <label>Описание товара:</label>
+      <quill-editor formControlName="text"></quill-editor>
+      <label for="price">Цена</label>
+      <input type="number" id="price" formControlName="price">
+      <div class="validation" *ngIf="editForm.controls['price'].invalid && editForm.controls['price'].touched">
+        <p>Введите цену товара</p>
+      </div><br>
+      <label for="count">Количество</label>
+      <input type="number" id="count" formControlName="count">
+      <div class="validation" *ngIf="editForm.controls['count'].invalid && editForm.controls['count'].touched">
+        <p>Введите количество товара</p>
+      </div><br>
+      <label for="img">Картинка</label>
+      <input type="file" id="img" formControlName="img">
+  
+      <button type="submit" [disabled]="editForm.invalid || submitted">Применить редактирование</button>
+    </form>
+  </div>
+
+  <ng-template #loading>
+      <img src="assets/img/loader.png" alt="">
+      <h2>Загружаю...</h2>
+  </ng-template>
+  

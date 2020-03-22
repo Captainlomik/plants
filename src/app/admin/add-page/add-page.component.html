@@ -1,1 +1,26 @@
-<p>add-page works!</p>
+<div class="loginWrap container-xl">
+  <h2>Добавление товара</h2>
+  <form [formGroup]="addForm" novalidate (ngSubmit)="submit()">
+    <label for="name">Название</label>
+    <input type="text" id="name" formControlName="title">
+    <div class="validation" *ngIf="addForm.controls['title'].invalid && addForm.controls['title'].touched">
+      <p>Введите название товара</p>
+    </div><br>
+    <label>Описание товара:</label>
+    <quill-editor formControlName="text"></quill-editor>
+    <label for="price">Цена</label>
+    <input type="number" id="price" formControlName="price">
+    <div class="validation" *ngIf="addForm.controls['price'].invalid && addForm.controls['price'].touched">
+      <p>Введите цену товара</p>
+    </div><br>
+    <label for="count">Количество</label>
+    <input type="number" id="count" formControlName="count">
+    <div class="validation" *ngIf="addForm.controls['count'].invalid && addForm.controls['count'].touched">
+      <p>Введите количество товара</p>
+    </div><br>
+    <label for="img">Картинка</label>
+    <input type="file" id="img" formControlName="img">
+
+    <button type="submit" [disabled]="addForm.invalid">Добавить товар</button>
+  </form>
+</div>

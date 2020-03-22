@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Admin, FbAuthResponse } from './../../../shared/interfaces';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
@@ -5,7 +6,7 @@ import { Observable, throwError, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { tap, catchError } from 'rxjs/operators'
 
-@Injectable()
+@Injectable( {providedIn: 'root'})
 export class AuthService {
   public error$: Subject<string> = new Subject<string>()
 
@@ -37,7 +38,7 @@ export class AuthService {
     return !!this.token
   }
 
-  private handleError(err: HttpErrorResponse) {
+  private handleError(err: HttpErrorResponse, router:Router) {
     const { message } = err.error.error;
     console.log(message);
 
@@ -52,6 +53,7 @@ export class AuthService {
         this.error$.next('Неверный пароль')
         break;
     }
+    window.location.reload(false); //перезагрузка страницы из кэша
     return throwError(err);
   }
 

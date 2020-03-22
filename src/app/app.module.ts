@@ -1,7 +1,10 @@
+import { AlertService } from './admin/shared/services/alert.service';
+
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Provider } from '@angular/core';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,8 +18,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegistrationComponent } from './login/registration/registration.component';
 import { ProductsCatalogComponent } from './shared/components/products-catalog/products-catalog.component';
+import { AuthInterseptor } from './shared/auth.interceptor';
 
-
+const INTERSEPTOR:Provider={
+provide:HTTP_INTERCEPTORS,
+multi:true,
+useClass:AuthInterseptor
+}
 
 @NgModule({
   declarations: [
@@ -30,7 +38,6 @@ import { ProductsCatalogComponent } from './shared/components/products-catalog/p
     LoginComponent,
     RegistrationComponent,
     ProductsCatalogComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,7 @@ import { ProductsCatalogComponent } from './shared/components/products-catalog/p
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [INTERSEPTOR],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

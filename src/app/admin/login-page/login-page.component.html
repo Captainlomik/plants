@@ -14,6 +14,7 @@
       </div>
       <button type="submit" [disabled]="adminForm.invalid || submitted">Войти</button>
     <div class="alert" *ngIf="authService.error$ | async as error">{{error}}</div>
+    <div class="alert" *ngIf="message">{{message}}</div>
     </form>
   </div>
 </div>
