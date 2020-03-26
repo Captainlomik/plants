@@ -9,11 +9,11 @@ import { Product } from '../shared/interfaces';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-product:Observable<Product[]>
+product$:Observable<Product[]>
   constructor(private productServices:ProductServices) { }
 
   ngOnInit() {
-   this.product= this.productServices.getAll()
+   this.product$= this.productServices.getAll()
   }
 
 }

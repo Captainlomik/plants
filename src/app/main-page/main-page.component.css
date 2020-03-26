@@ -28,7 +28,7 @@
 
  .about-text, .sent-text
  {
-   width: 30%;
+   width: 40%;
    text-align: center;
    margin-left: 5em;
    margin-right: 5em;
@@ -79,6 +79,19 @@ margin: 0 auto;
   color: #80B435;
 }
 
+.cardWrap 
+{
+  margin:3em auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 95%;
+}
+
+.wrap 
+{
+  margin: 1em;
+}
 /*--------BLOCK-------*/
 .block-wrap
 {
@@ -160,3 +173,5 @@ margin: 0;
   {
     margin-top:3em;
   }
+
+ 

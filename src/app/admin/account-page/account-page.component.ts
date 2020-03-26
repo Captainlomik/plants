@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,6 +11,7 @@ export class AccountPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

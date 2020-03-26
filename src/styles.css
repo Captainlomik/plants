@@ -50,3 +50,17 @@ a:hover
 {
     text-decoration: none;
 }
+
+.loading
+{ 
+    margin: 2em auto;
+    text-align: center;
+}
+
+@media (min-width: 1200px){
+
+    .container-xl
+    {
+        max-width: 1300px !important;
+    }
+}

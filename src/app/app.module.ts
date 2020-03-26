@@ -20,6 +20,8 @@ import { RegistrationComponent } from './login/registration/registration.compone
 import { ProductsCatalogComponent } from './shared/components/products-catalog/products-catalog.component';
 import { AuthInterseptor } from './shared/auth.interceptor';
 import { SearchPipe } from './admin/shared/search.pipe';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 const INTERSEPTOR:Provider={
 provide:HTTP_INTERCEPTORS,
@@ -39,7 +41,7 @@ useClass:AuthInterseptor
     LoginComponent,
     RegistrationComponent,
     ProductsCatalogComponent,
-  
+    
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,9 @@ useClass:AuthInterseptor
     AdminModule, 
     SharedModule, 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule,
+
   ],
   providers: [INTERSEPTOR],
   bootstrap: [AppComponent]
