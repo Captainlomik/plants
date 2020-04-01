@@ -1,3 +1,5 @@
+import { AuthService } from './../../admin/shared/services/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
@@ -13,7 +15,8 @@ import { PathLocationStrategy } from '@angular/common';
 export class LoginComponent implements OnInit {
   closeResult = '';
   loginForm: FormGroup
-  constructor(private modalService: NgbModal) { }
+  submitted=false;
+  constructor(private modalService: NgbModal, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup(
@@ -29,6 +32,12 @@ export class LoginComponent implements OnInit {
 
   submit() {
     console.log(this.loginForm);
+      this.submitted = true;
+  
+      this.authService.login(this.loginForm.value).subscribe(() => {
+       
+      })
+    
   }
   
   open(content) {

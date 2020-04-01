@@ -30,6 +30,10 @@ export class AuthService {
         catchError(this.handleError.bind(this)))
   }
 
+  registration(value){
+    return value;
+  }
+
   logout() {
     this.setToken(null)
   }

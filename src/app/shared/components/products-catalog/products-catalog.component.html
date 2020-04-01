@@ -4,5 +4,34 @@
     <h2>{{product.title}}</h2>
   </div>
   <p>{{product.price}} руб</p>
-  <a href="" class="button">Заказать</a>
+  <a  class="button" (click)="open(content)" >Заказать</a>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Оформить заказ</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<form [formGroup]="buyForm" novalidate (ngSubmit)="submit()">
+<div class="modal-body">
+ 
+    <div class="form-group">
+        <label for="name">Имя</label>
+        <input type="text" id="name" formControlName="name">
+        <label for="surname" >Фамилия</label>
+        <input type="text" id="surname" formControlName="surname">
+        <label for="email" >email</label>
+        <input type="text" id="email" formControlName="email">
+        <label for="phone" >Телефон</label>
+        <input type="text" id="phone" formControlName="phone">
+        <label for="count">Количество</label>
+        <input type="number" id="count" formControlName="count">
+    </div>
+</div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Заказать</button>
+  </div>
+ </form>
+</ng-template>
