@@ -3,8 +3,9 @@
 { 
 margin: 2em auto ;
 text-align: center;
-
+color: #80B354;
 }
+
 .contentWrap input 
 {
     width: 40%;
@@ -12,7 +13,6 @@ text-align: center;
     border-radius: 10px;
     border: 1px solid #80B354;
     outline: none;
-  
 }
 
 .cardWrap 

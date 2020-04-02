@@ -1,0 +1,31 @@
+h2 
+{
+    margin: 1em auto;
+    text-align: center;
+    color: #80B345;
+}
+.orderFlex
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.orderWrap 
+{
+   padding: 1em;
+    border:1px solid #80B345;
+    margin:1em;
+   border-radius: 20px;
+}
+
+input 
+{
+    width: 40%;
+    margin: 1em 30%;
+    border-radius: 10px;
+    border: 1px solid #80B354;
+    outline: none;
+    padding-left:2px;
+}

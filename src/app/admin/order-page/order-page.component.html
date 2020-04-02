@@ -1,1 +1,17 @@
-<p>order-page works!</p>
+<h2>Заказы</h2>
+<input type="text" name="" id="" placeholder="найти" [(ngModel)]="search">
+<div class="orderFlex">
+  <div *ngFor="let order of orders | orderSearch:search">
+    <div class="orderWrap">
+      <p>Id заказа: {{order.id}}</p>
+      <h4> {{order.name}}</h4>
+      <p>Фамилия: {{order.surname}}</p>
+      <p>email: {{order.email}}</p>
+      <p>Телефон: {{order.phone}}</p>
+      <p>Id продукта: {{order.productId}}</p>
+      <p>Продукт: {{order.productTitle}}</p>
+      <p>Количество: {{order.count}}</p>
+      <p>Статус: {{order.status}}</p>
+    </div>
+  </div>
+</div>

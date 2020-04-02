@@ -14,10 +14,14 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+  <div class="headPopup">
+    <h3>Название: {{product.title}}</h3>
+  </div>
 <form [formGroup]="buyForm" novalidate (ngSubmit)="submit()">
 <div class="modal-body">
  
     <div class="form-group">
+      <h4>Ваши данные:</h4>
         <label for="name">Имя</label>
         <input type="text" id="name" formControlName="name">
         <label for="surname" >Фамилия</label>
@@ -31,7 +35,8 @@
     </div>
 </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Заказать</button>
+    <button type="submit" class="button" [disabled]="buyForm.invalid">Заказать</button>
   </div>
  </form>
+ <app-alert></app-alert>
 </ng-template>

@@ -50,10 +50,10 @@ useClass:AuthInterseptor
     SharedModule, 
     FormsModule,
     ReactiveFormsModule,
-    NgbModule,
+    NgbModule
 
   ],
-  providers: [INTERSEPTOR],
+  providers: [INTERSEPTOR,  AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

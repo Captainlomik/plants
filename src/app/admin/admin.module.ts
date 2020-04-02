@@ -14,6 +14,7 @@ import { AddPageComponent } from './add-page/add-page.component';
 import { AccountPageComponent } from './account-page/account-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AlertComponent } from './shared/components/alert/alert.component';
+import { OrderPipe } from './shared/searchOrder.pipe';
 
 @NgModule({
   declarations: [AdminLayoutComponent,
@@ -24,7 +25,8 @@ import { AlertComponent } from './shared/components/alert/alert.component';
     AccountPageComponent,
     EditPageComponent,
     AlertComponent, 
-    SearchPipe
+    SearchPipe,
+    OrderPipe
 ],
 
   imports: [
@@ -48,7 +50,7 @@ import { AlertComponent } from './shared/components/alert/alert.component';
     )
   ],
   exports: [RouterModule,
-    SharedModule, SearchPipe],
+    SharedModule, SearchPipe, AlertComponent],
   providers: [AuthGuard, AlertService]
 })
 export class AdminModule { }

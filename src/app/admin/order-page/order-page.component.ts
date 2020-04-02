@@ -1,3 +1,5 @@
+import { Order } from './../../shared/interfaces';
+import { orderServices } from './../../shared/order.services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-page.component.css']
 })
 export class OrderPageComponent implements OnInit {
+  orders: Order[] = []
 
-  constructor() { }
+  constructor(private orderService: orderServices) { }
 
   ngOnInit() {
+    this.orderService.getAll().subscribe(orders => {
+      this.orders = orders;
+    })
   }
 
 }

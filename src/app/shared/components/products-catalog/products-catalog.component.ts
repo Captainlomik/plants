@@ -1,7 +1,11 @@
+import { Router } from '@angular/router';
+
+import { orderServices } from './../../order.services';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Product } from './../../interfaces';
+import { Product, Order } from './../../interfaces';
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { AlertService } from 'src/app/admin/shared/services/alert.service';
 
 
 @Component({
@@ -13,7 +17,8 @@ export class ProductsCatalogComponent implements OnInit {
   @Input() product: Product;
   closeResult = '';
   buyForm:  FormGroup;
-  constructor(private modalService: NgbModal) { }
+  alertService: any;
+  constructor(private modalService: NgbModal, private orderService:orderServices, private alert:AlertService) { }
 
   ngOnInit() {
     this.buyForm = new FormGroup(
@@ -27,6 +32,29 @@ export class ProductsCatalogComponent implements OnInit {
     )
 
   }
+
+  submit()
+  {
+    const order: Order={
+      name: this.buyForm.value.name,
+      surname: this.buyForm.value.surname,
+      phone:this.buyForm.value.phone,
+      email:this.buyForm.value.email,
+      count:this.buyForm.value.count,
+      productId:this.product.id,
+      productTitle:this.product.title,
+      status:'newOrder'
+
+    }
+    this.orderService.add(order).subscribe(()=>
+    {
+      this.buyForm.reset();
+      this.alert.success('Заказ успешно оформлен. Ожидайте звонка')
+      this.modalService.dismissAll();
+      
+    })
+  }
+
 
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
