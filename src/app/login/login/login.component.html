@@ -33,7 +33,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div> 
-    <form [formGroup]="loginForm" novalidate (ngSubmit)="submit()">
+    <form [formGroup]="regForm" novalidate (ngSubmit)="submit()">
     <div class="modal-body">
      
         <div class="form-group">
@@ -50,7 +50,7 @@
         </div>
     </div>
     <div class="modal-footer">
-      <button type="submit" [disabled]="loginForm.invalid" class="button">Зарегистрироваться
+      <button type="submit" [disabled]="regForm.invalid" class="button">Зарегистрироваться
       </button>
     </div>
     </form>

@@ -14,12 +14,14 @@ import { PathLocationStrategy } from '@angular/common';
 })
 export class LoginComponent implements OnInit {
   closeResult = '';
-  loginForm: FormGroup
+  regForm: FormGroup
   submitted=false;
+  loginForm:FormGroup;
+  
   constructor(private modalService: NgbModal, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    this.loginForm = new FormGroup(
+    this.regForm = new FormGroup(
       {
         name:new FormControl('', Validators.required),
         surname:new FormControl('', Validators.required),
@@ -28,13 +30,20 @@ export class LoginComponent implements OnInit {
         password: new FormControl('', [Validators.required, Validators.minLength(6)])
       }
     )
+
+    this.loginForm=new FormGroup(
+      {
+        email:new FormControl('', [Validators.required, Validators.email]),
+        password:new FormControl('', Validators.required)
+      }
+    )
   }
 
   submit() {
-    console.log(this.loginForm);
+    console.log(this.regForm);
       this.submitted = true;
   
-      this.authService.login(this.loginForm.value).subscribe(() => {
+      this.authService.login(this.regForm.value).subscribe(() => {
        
       })
     

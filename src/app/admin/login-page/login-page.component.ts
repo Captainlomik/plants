@@ -12,22 +12,20 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class LoginPageComponent implements OnInit {
   adminForm: FormGroup;
   submitted: boolean = false;
-  message:string;
+  message: string;
 
 
-  constructor(public authService: AuthService, private router: Router, private route:ActivatedRoute) { }
+  constructor(public authService: AuthService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-this.route.queryParams.subscribe((params:Params)=>{
-if(params['loginAgain'])
-{
-  this.message='Пожалуйста введите данные';
-}
-else if (params['authFailed'])
-{
-  this.message='Сессия истекла введите данный заново'
-}
-})
+    this.route.queryParams.subscribe((params: Params) => {
+      if (params['loginAgain']) {
+        this.message = 'Пожалуйста введите данные';
+      }
+      else if (params['authFailed']) {
+        this.message = 'Сессия истекла введите данный заново'
+      }
+    })
 
     this.adminForm = new FormGroup(
       {
