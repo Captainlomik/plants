@@ -57,3 +57,16 @@ button:hover:disabled
     width: 45%;
     margin:0 auto 1em auto;
 }
+
+@media (max-width:768px)
+{
+    .loginWrap h2 
+    {
+         margin-top:3em;
+    }
+    .loginWrap
+    {
+        width: 95%;
+        margin: 0 auto;
+    }
+}

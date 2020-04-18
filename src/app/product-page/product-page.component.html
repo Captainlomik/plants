@@ -4,9 +4,9 @@
     <img src="{{product.img}}" alt="">
     <div class="info">
         <h2>{{product.title}}</h2>
-        <quill-view-html [content]="product.text"></quill-view-html>
-        <p>{{product.price}}</p>
-        <p>{{product.count}}</p>
+        Описание продукта:<quill-view-html [content]="product.text"></quill-view-html>
+    <div> <p>Цена продукта:{{product.price}} руб</p></div>
+        Количество на складе: <p> Количество на складе: {{product.count}}</p>
         
     </div>
 </div>

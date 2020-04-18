@@ -1,8 +1,10 @@
+import { UploadService } from './../shared/services/upload.service';
 import { AlertService } from './../shared/services/alert.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Product } from 'src/app/shared/interfaces';
 import { ProductServices } from 'src/app/shared/product.services';
+
 
 @Component({
   selector: 'app-add-page',
@@ -10,10 +12,13 @@ import { ProductServices } from 'src/app/shared/product.services';
   styleUrls: ['./add-page.component.css']
 })
 export class AddPageComponent implements OnInit {
-
+@ViewChild("fileUpload", {static: false}) fileUpload: ElementRef;files  = [];
   addForm: FormGroup;
 
-  constructor(private productServices:ProductServices, private alertService:AlertService) { }
+  constructor(
+    private productServices:ProductServices,
+     private alertService:AlertService,
+     private uploadServise:UploadService) { }
 
   ngOnInit() {
     this.addForm = new FormGroup(
@@ -26,6 +31,8 @@ export class AddPageComponent implements OnInit {
       }
     )
   }
+
+ 
 
   submit() {
     const product: Product = {

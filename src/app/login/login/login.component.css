@@ -158,7 +158,20 @@ button:hover:disabled
 label{
   min-width: 17%;
 }
-  @media screen and (max-width: 700px){
+@media (min-width:756px) and (max-width:1024px)
+{
+  section 
+  {
+    background-size: auto;
+  }
+  form input
+  {
+    width: 350px;
+  }
+}
+
+
+  @media (max-width: 756px){
     .box{
       width: 70%;
     }
@@ -166,4 +179,25 @@ label{
       width: 70%;
     }
 
+    .loginWrap
+    {
+      width: 90%;
+      margin:0 auto;
+    }
+    form input
+    {
+      width: 200px;
+    }
+    section 
+    {
+      background-size: auto;
+      width: 100%;
+      height: 100%;
+      background-position: top right;
+    }
+
+    .loginAdmin
+    {
+      height: 100%;
+    }
   }

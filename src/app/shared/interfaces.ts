@@ -1,3 +1,4 @@
+import { AuthUserService } from './authUser.service';
 import { Params } from '@angular/router';
 
 export interface Admin {
@@ -39,4 +40,19 @@ export interface Order {
 export interface Email 
 {
   email:string;
+}
+
+export interface User{
+returnSecureToken?: boolean;
+name?:string;
+surname?:string;
+phone?:string;
+email:string;
+password:string;
+}
+
+export interface FbUserAuth
+{
+  idToken:string;
+  expiresIn:string;
 }

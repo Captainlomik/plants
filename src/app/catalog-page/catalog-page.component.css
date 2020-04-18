@@ -72,3 +72,30 @@
 {
   margin: 1em;
 }
+
+@media (min-width:320px) and (max-width:760px)
+{
+  .container-xl
+  {
+    padding: 0;
+  }
+  .header h2
+  {
+    font-size: 24px;
+    margin: 2em auto;
+  }
+  .header
+  {
+    height: 250px;
+    margin-bottom: 3em;
+    background-size: auto;
+    background-position-x: left;
+    background-position-y: top;
+  }
+  .sortWrap
+  {
+    width: 90%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+}

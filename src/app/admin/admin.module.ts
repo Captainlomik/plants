@@ -1,3 +1,6 @@
+import { AuthService } from './shared/services/auth.service';
+import { AppModule } from './../app.module';
+import { environment } from 'src/environments/environment';
 import { AlertService } from './shared/services/alert.service';
 import { SearchPipe } from './shared/search.pipe';
 import { EditPageComponent } from './edit-page/edit-page.component';
@@ -15,6 +18,8 @@ import { AccountPageComponent } from './account-page/account-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AlertComponent } from './shared/components/alert/alert.component';
 import { OrderPipe } from './shared/searchOrder.pipe';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [AdminLayoutComponent,
@@ -26,13 +31,13 @@ import { OrderPipe } from './shared/searchOrder.pipe';
     EditPageComponent,
     AlertComponent, 
     SearchPipe,
-    OrderPipe
+    OrderPipe,
 ],
 
   imports: [
+   SharedModule,
     CommonModule,
     FormsModule,
-    SharedModule,
     ReactiveFormsModule,
     RouterModule.forChild(
       [{ path: 'login', component: LoginPageComponent },
@@ -49,8 +54,8 @@ import { OrderPipe } from './shared/searchOrder.pipe';
       ]
     )
   ],
-  exports: [RouterModule,
+  exports: [
     SharedModule, SearchPipe, AlertComponent],
-  providers: [AuthGuard, AlertService]
+  providers: [ AlertService, ]
 })
 export class AdminModule { }

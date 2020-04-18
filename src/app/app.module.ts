@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { AlertService } from './admin/shared/services/alert.service';
 
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,11 +17,15 @@ import { ProductPageComponent } from './product-page/product-page.component';
 import { AdminModule } from './admin/admin.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login/login.component';
-import { RegistrationComponent } from './login/registration/registration.component';
 import { ProductsCatalogComponent } from './shared/components/products-catalog/products-catalog.component';
-import { AuthInterseptor } from './shared/auth.interceptor';
-import { SearchPipe } from './admin/shared/search.pipe';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AuthInterseptor } from './admin/shared/auth.interceptor';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+import {AngularFireStorageModule} from 'angularfire2/storage';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
+import {AngularFireModule} from 'angularfire2';
+import {PersonalAreaComponent } from './login/personal-area/personal-area.component'
+
 
 
 const INTERSEPTOR:Provider={
@@ -39,9 +44,8 @@ useClass:AuthInterseptor
     ProductPageComponent,
     NotFoundComponent,
     LoginComponent,
-    RegistrationComponent,
     ProductsCatalogComponent,
-    
+    PersonalAreaComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,8 +54,10 @@ useClass:AuthInterseptor
     SharedModule, 
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
-
+    NgbModule,
+    AngularFireStorageModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment)
   ],
   providers: [INTERSEPTOR,  AlertService],
   bootstrap: [AppComponent]

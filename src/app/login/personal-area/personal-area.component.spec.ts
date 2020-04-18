@@ -1,25 +1,26 @@
 import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminLayoutComponent } from './admin-layout.component';
+import { PersonalAreaComponent } from './personal-area.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
-describe('AdminLayoutComponent', () => {
-  let component: AdminLayoutComponent;
-  let fixture: ComponentFixture<AdminLayoutComponent>;
+describe('PersonalAreaComponent', () => {
+  let component: PersonalAreaComponent;
+  let fixture: ComponentFixture<PersonalAreaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminLayoutComponent ],
-      schemas: [ NO_ERRORS_SCHEMA],
-      imports:[RouterTestingModule, HttpClientModule]
+      imports:[HttpClientModule,
+        RouterTestingModule ],
+      declarations: [ PersonalAreaComponent ],
+      schemas:[NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminLayoutComponent);
+    fixture = TestBed.createComponent(PersonalAreaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

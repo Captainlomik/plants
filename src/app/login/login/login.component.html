@@ -4,9 +4,12 @@
   </div>
   <div class="loginAdmin">
     <div class="loginWrap">
+<div class="alert alert-danger" *ngIf="authUserService.$error | async as error">
+        {{error}}
+      </div>
 
       <h2>Личный Кабинет</h2>
-      <form [formGroup]="loginForm" novalidate (ngSubmit)="submit()">
+          <form [formGroup]="loginForm" novalidate (ngSubmit)="submitLog()">
         <label for="login">Логин</label>
         <input type="text" id="login" placeholder="email" formControlName="email">
         <div class="validation" *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
@@ -27,6 +30,7 @@
 
 
   <ng-template #content let-modal>
+    <app-alert></app-alert>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Регистрация</h4>
       <button class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -40,11 +44,11 @@
             <label for="name">Имя</label>
             <input type="text" id="name" formControlName="name">
             <label for="surname" >Фамилия</label>
-            <input type="text" id="surname" formControlName="surname">
+            <input type="text" id="surname" formControlName="surname" >
             <label for="email" >email</label>
             <input type="text" id="email" formControlName="email">
             <label for="phone" >Телефон</label>
-            <input type="text" id="phone" formControlName="phone">
+            <input type="text" id="phone"  formControlName="phone">
             <label for="password">Пароль</label>
             <input type="text" id="password" formControlName="password">
         </div>

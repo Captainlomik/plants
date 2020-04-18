@@ -19,7 +19,12 @@ describe('FooterComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should return current year', ()=>
+  {
+    const component=new FooterComponent();
+    component.year;
+    const year2=new Date().getFullYear();
+    expect(component.year).toBe(year2);
+  })
+ 
 });

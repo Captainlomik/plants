@@ -71,3 +71,52 @@ text-align: center;
     color:#80b435;
 }
 
+@media (max-width:768px)
+{
+  .container-xl 
+  {
+      padding: 0;
+  }
+.cardWrap
+{
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+.contentWrap h2 
+{
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+.cardTxt
+{
+    width: 90%;
+}
+.cardTxt h2 
+{
+    margin: 0.5em;
+}
+.flexWrap
+{
+    flex-wrap: wrap;
+}
+.infoWrap 
+{
+    margin: 0 auto;
+}
+.btnWrap
+{
+    flex-wrap: wrap;
+}
+
+.btnWrap .button, .btnWrap .button2
+{
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+span 
+{
+    width: 100%;
+}
+
+}

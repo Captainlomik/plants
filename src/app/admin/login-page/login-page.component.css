@@ -83,3 +83,26 @@ button:hover:disabled
     width: 45%;
     margin:0 auto 1em auto;
 }
+
+@media (max-width:756px)
+{
+    .loginAdmin
+    {
+        background-size: auto;
+    }
+    form input
+    {
+      width: 200px;
+    }
+    .loginWrap
+    {
+        width: 100%;
+    }
+}
+@media (min-width:756px) and (max-width:1024px)
+{
+    .loginAdmin
+    {
+        background-size: auto;
+    }
+}

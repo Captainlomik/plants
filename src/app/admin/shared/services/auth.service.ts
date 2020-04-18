@@ -1,12 +1,14 @@
 import { Router } from '@angular/router';
-import { Admin, FbAuthResponse } from './../../../shared/interfaces';
+import { Admin, FbAuthResponse, User } from './../../../shared/interfaces';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { Observable, throwError, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { tap, catchError } from 'rxjs/operators'
 
-@Injectable( {providedIn: 'root'})
+
+
+@Injectable({providedIn:'root'})
 export class AuthService {
   public error$: Subject<string> = new Subject<string>()
 
@@ -30,19 +32,21 @@ export class AuthService {
         catchError(this.handleError.bind(this)))
   }
 
-  registration(value){
-    return value;
-  }
+  registration(reguser: User): Observable<any> {
+    return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.apiKey}`, reguser)
+}
 
   logout() {
     this.setToken(null)
+
   }
 
   isAuthenticated(): boolean {
+    console.log(!!this.token);
     return !!this.token
   }
 
-  private handleError(err: HttpErrorResponse, router:Router) {
+  private handleError(err: HttpErrorResponse, router: Router) {
     const { message } = err.error.error;
     console.log(message);
 

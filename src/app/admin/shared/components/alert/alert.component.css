@@ -5,3 +5,14 @@
     right: 40px;
 max-width: 200px;
 }
+@media(max-width:720px)
+{
+
+    .alertWrap 
+    {
+        position: fixed;
+        top:20px;
+        right: 10px;
+    max-width: 100px;
+    }
+}
