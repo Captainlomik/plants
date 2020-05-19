@@ -12,13 +12,13 @@ import { ProductServices } from 'src/app/shared/product.services';
   styleUrls: ['./add-page.component.css']
 })
 export class AddPageComponent implements OnInit {
-@ViewChild("fileUpload", {static: false}) fileUpload: ElementRef;files  = [];
+  @ViewChild("fileUpload", { static: false }) fileUpload: ElementRef; files = [];
   addForm: FormGroup;
 
   constructor(
-    private productServices:ProductServices,
-     private alertService:AlertService,
-     private uploadServise:UploadService) { }
+    private productServices: ProductServices,
+    private alertService: AlertService,
+    private uploadServise: UploadService) { }
 
   ngOnInit() {
     this.addForm = new FormGroup(
@@ -32,9 +32,9 @@ export class AddPageComponent implements OnInit {
     )
   }
 
- 
 
-  submit() {
+
+  submit() {//передача формы с данными по продукту в БД
     const product: Product = {
       title: this.addForm.value.title,
       text: this.addForm.value.text,
@@ -43,12 +43,9 @@ export class AddPageComponent implements OnInit {
       img: this.addForm.value.img
     }
 
-this.productServices.create(product).subscribe(()=>
-{
-  this.addForm.reset();
-  this.alertService.success('Новый продукт создан');
-})
-
-    console.log(product);
+    this.productServices.create(product).subscribe(() => { //подписка на сервис-оповещение
+      this.addForm.reset();
+      this.alertService.success('Новый продукт создан');
+    })
   }
 }

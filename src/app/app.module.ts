@@ -24,7 +24,9 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AngularFireStorageModule} from 'angularfire2/storage';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {AngularFireModule} from 'angularfire2';
-import {PersonalAreaComponent } from './login/personal-area/personal-area.component'
+import {PersonalAreaComponent } from './login/personal-area/personal-area.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
 
 
 
@@ -57,7 +59,8 @@ useClass:AuthInterseptor
     NgbModule,
     AngularFireStorageModule,
     AngularFirestoreModule,
-    AngularFireModule.initializeApp(environment)
+    AngularFireModule.initializeApp(environment),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [INTERSEPTOR,  AlertService],
   bootstrap: [AppComponent]

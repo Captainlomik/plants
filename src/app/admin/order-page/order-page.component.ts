@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderPageComponent implements OnInit {
   orders: Order[] = []
-
+search:string;
   constructor(private orderService: orderServices) { }
 
   ngOnInit() {

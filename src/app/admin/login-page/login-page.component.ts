@@ -36,7 +36,6 @@ export class LoginPageComponent implements OnInit {
 
   submit() {
     console.log(this.adminForm);
-
     this.submitted = true;
 
     const admin: Admin =
@@ -47,7 +46,7 @@ export class LoginPageComponent implements OnInit {
 
     this.authService.login(admin).subscribe(() => {
       this.adminForm.reset(),
-        this.router.navigate(['/admin', 'dashboard'])
+      this.router.navigate(['/admin', 'dashboard'])
       this.submitted = false;
     })
   }

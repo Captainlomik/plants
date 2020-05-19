@@ -19,4 +19,9 @@ export class emailServices
             }))
     }
 
+    getAll()
+    {
+        return this.http.get(`${environment.fbDbUrl}email.json`)
+    }
+
 }

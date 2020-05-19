@@ -1,7 +1,7 @@
 import { AlertService } from './../admin/shared/services/alert.service';
 import { Email } from './../shared/interfaces';
 import { emailServices } from './../shared/email.services';
-import { FormGroup, FormControl, Validators, FormsModule} from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ProductServices } from 'src/app/shared/product.services';
 import { Component, OnInit } from '@angular/core';

@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   message: string;
 
   constructor(private modalService: NgbModal, private route: ActivatedRoute,
-    private authUserService: AuthUserService, private router: Router,
+    public authUserService: AuthUserService, private router: Router,
     private alert: AlertService,
     private auth: AuthService,
   ) { }
