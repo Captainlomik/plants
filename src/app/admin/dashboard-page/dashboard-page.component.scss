@@ -1,0 +1,122 @@
+.contentWrap h2 {
+  margin: 2em auto;
+  text-align: center;
+  color: #80B354;
+}
+
+.contentWrap input {
+  width: 40%;
+  margin: 1em 30%;
+  border-radius: 10px;
+  border: 1px solid #80B354;
+  outline: none;
+  padding-left: 2px
+}
+
+.cardWrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #80b435;
+  margin-bottom: 2em;
+  border-radius: 50px;
+}
+
+.cardTxt {
+  width: 70%;
+}
+
+.flexWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+}
+
+.btnWrap {
+  display: flex;
+}
+
+.button,
+.button2 {
+  width: 160px;
+  height: 30px;
+  background: white;
+  border-radius: 50px;
+  display: block;
+  color: red;
+  border: 2px solid red;
+  font-size: 18px;
+  margin: 0 1em;
+  text-align: center;
+}
+
+.button2:hover {
+  background: #ffff;
+  border: 2px dotted #80B435;
+  color: #80B435;
+}
+
+.button:hover {
+  border: 2px dotted red;
+  background: #ffff;
+  color: red
+}
+
+.button2 {
+  border: 2px solid #80B435;
+  color: #80b435;
+}
+
+img {
+  width: 50%;
+  margin-left: 2em;
+}
+
+@media (max-width:768px) {
+  .container-xl {
+    padding: 0;
+  }
+
+  .cardWrap {
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+
+  .contentWrap h2 {
+    margin-top: 3em;
+    margin-bottom: 1em;
+  }
+
+  .cardTxt {
+    width: 90%;
+  }
+
+  .cardTxt h2 {
+    margin: 0.5em;
+  }
+
+  .flexWrap {
+    flex-wrap: wrap;
+  }
+
+  .infoWrap {
+    margin: 0 auto;
+  }
+
+  .btnWrap {
+    flex-wrap: wrap;
+  }
+
+  .btnWrap .button,
+  .btnWrap .button2 {
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  span {
+    width: 100%;
+  }
+
+}

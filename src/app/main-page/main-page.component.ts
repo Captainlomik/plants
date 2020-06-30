@@ -10,12 +10,37 @@ import { Product } from '../shared/interfaces';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.css']
+  styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
   product$: Observable<Product[]>
+  config: any;
+  fullpage_api: any;
 
-  constructor(private productServices: ProductServices, private emailService: emailServices, private alert: AlertService) { }
+  constructor(private productServices: ProductServices, private emailService: emailServices, private alert: AlertService) {
+
+
+    // for more details on config options please visit fullPage.js docs
+    this.config = {
+
+      // fullpage options
+      anchors: ['Main', 'About', 'Products', 'Sent', 'Info', 'Contact'],
+      menu: '#menu',
+      navigation: true,
+      navigationPosition: 'right',
+      responsiveWidth:1024,
+      // fullpage callbacks
+      
+      afterLoad: (origin, destination, direction) => {
+        console.log(origin.index);
+      }
+    };
+  }
+
+  getRef(fullPageRef) {
+    this.fullpage_api = fullPageRef;
+  }
+
 
   emailForm: FormGroup;
 
@@ -29,6 +54,10 @@ export class MainPageComponent implements OnInit {
     )
 
   }
+
+
+
+
 
   submit() {
     const email: Email = {

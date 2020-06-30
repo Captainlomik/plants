@@ -1,21 +1,19 @@
-<div class="container-fluid header">
-  <div class="container-xl">
+<div class="header">
     <app-header></app-header>
-  </div>
-  <h2>Каталог</h2>
+  <h1>Каталог</h1>
 </div>
-<section class=" container-xl sort">
+<section class="container-xl sort">
   <div class="sortWrap">
     <div class="filterWrap"><p>Сортировка:</p>
-    <button class="button btn">По цене</button></div>
+    <button class="button btn" (click)="flag=!flag" (click)="fetchProduct(flag)">По цене</button></div>
     <input type="text" class="input" placeholder="Найти" [(ngModel)]="search">
     
   </div>
 </section>
 <div class="container-xl">
-  <div  *ngIf="products$ | async as products; else loading">
+  <div  *ngIf="productEl else loading">
    <div class="cardWrap">
-     <app-products-catalog class="wrap"  *ngFor="let product of products | searchProduct:search" [product]="product"></app-products-catalog>
+     <app-products-catalog class="cardWrap__card" [product]="product"  *ngFor="let product of productEl" ></app-products-catalog>
  </div> </div>
 </div>
 <ng-template #loading>

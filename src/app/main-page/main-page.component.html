@@ -1,20 +1,35 @@
-<section class="container-xl header">
-  <app-header></app-header>
-</section>
-<section class="container-xl about">
-  <div class="line"></div>
-  <div class="about-wrap">
-    <div class="about-img">
-      <img src="assets/img/img2.png" alt="plantsfamily">
+ <section class="header_">
+   <app-header id="menu"></app-header>
+ </section>
+ 
+ <div fullpage id="fullpage" [options]="config" (ref)="getRef($event)"  >
+   <section class="firstScreen section">
+<div class="firstScreen__wrapper">
+  <div class="firstScreen__txt">
+    <h2>Кактусы и суккуленты для вашего настроения!</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias molestiae soluta ut, ipsum optio minus eos quam vero nemo vel, nobis veniam id tempora earum quos cumque repudiandae. Quae, fugit!</p>
+  </div>
+  <div class="firstScreen__img">
+    <img src="assets/img/firstSection.png"  alt="">
+  </div>
+
+</div>
+   </section>
+
+<section class="secondScreen about section" >
+
+  <div class="about">
+    <div class="about__img">
+      <img src="assets/img/cactus1_ph.png"  alt="plantsfamily"  >
     </div>
-    <div class="about-text">
+    <div class="about__text">
       <h2>О нас</h2>
       <p>Lorem ipsum dolor sit amet, consectetur
         adipisicing elit. Aliquam ipsam ullam incidunt itaque nemo omnis temporibus totam quibusdam repellat vero,
         recusandae excepturi dignissimos velit et alias amet, quia facilis perferendis.</p>
 
-      <div class="about-cotacts">
-        <div class="contacts-wrap">
+      <div class="about__contacts">
+        <div class="about__contacts_wrap">
           <a href=""><img src="assets/img/facebook.png" alt="facebook"></a>
           <a href=""> <img src="assets/img/inst.png" alt="inst"></a>
           <a href=""> <img src="assets/img/vk.png" alt="vk"></a>
@@ -22,12 +37,13 @@
       </div>
     </div>
   </div>
+
+
 </section>
-<section class="container-xl products">
-  <div class="line"></div>
+<section class="thirdScreen products section ">
   <h2>Наша продукция</h2>
   <div class="product container-xl cardWrap" *ngIf="product$ | async as products; else loading">
-    <app-products-catalog class="wrap" *ngFor="let product of products | slice:0:6" [product]="product">
+    <app-products-catalog class="wrap" *ngFor="let product of products | slice:0:3" [product]="product">
     </app-products-catalog>
   </div>
   <ng-template #loading>
@@ -38,65 +54,61 @@
   </ng-template>
 
   <div class=""> <a href="" class="btn" [routerLink]="'/catalog'">Все товары ></a> </div>
+
 </section>
-<section class="container-xl sent" id="sent">
-  <div class="line"></div>
-  <div class="sent-wrap">
-    <div class="sent-text">
+<section class="FourthScreen sent section" >
+  <div class="sent__wrap">
+    <div class="sent__wrap__txt">
       <h2>Доставка</h2>
       <p>Lorem ipsum dolor sit amet, consectetur
         adipisicing elit. Aliquam ipsam ullam incidunt itaque nemo omnis temporibus totam quibusdam repellat vero,
         recusandae excepturi dignissimos velit et alias amet, quia facilis perferendis.</p>
     </div>
-    <div class="sent-img">
+    <div class="sent__wrap__img">
       <img src="assets/img/sent.png" alt="plantsfamily">
     </div>
 
   </div>
 </section>
-<section class="container-fluid blocInfo">
-  <div class="line"></div>
-  <div class="block-wrap">
-    <div class="block block1">
-      <img src="assets/img/image9.png" alt="">
+<section class="container-fluid blocInfo section">
+  <div class="block__wrap">
+    <div class="block__wrap__row">
+      <img src="assets/img/image9.png" alt="Ship">
       <h3>Доставка в срок</h3>
       <p>в течении 3х дней </p>
     </div>
-    <div class="block block1">
-      <img src="assets/img/image10.png" alt="">
+    <div class="block__wrap__row">
+      <img src="assets/img/image10.png" alt="consult">
       <h3>Консультация по уходу</h3>
     </div>
-    <div class="block block1">
-      <img src="assets/img/image11.png" alt="">
+    <div class="block__wrap__row">
+      <img src="assets/img/image11.png" alt="world">
       <h3>Довольные клиенты по всему миру</h3>
 
     </div>
-    <div class="block">
-      <img src="assets/img/image12.png" alt="">
+    <div class="block__wrap__row">
+      <img src="assets/img/image12.png" alt="contacts">
       <h3>Наши контакты</h3>
       <p>8 984 747 47 37 </p>
     </div>
 
   </div>
 </section>
-<section class="container-xl contact" id="contact">
-  <div class="line"></div>
-  <div class="contact-wrap">
-    <div class="info-wrap">
+<section class="container-xl contact section" >
+  <div class="contact__wrap">
+    <div class="contact__info__wrap">
       <h2>Контакты</h2>
       <p>Alienum phaedrum torquatos nec eu, vis detraxit serpents periculiser ex, nihil expetendis in mei. Meis an
         pericula eres euripidis, hinces partem ei est. Eos ei nisl graecis.</p>
       <h3>Телефон: 8 983 743-47-47</h3>
       <h3>email: plants@mail.ru</h3>
-      <div class="about-cotacts">
-        <div class="contacts-wrap">
+      <div class="contact__info__srcWrap">
           <a href=""><img src="assets/img/facebook.png" alt="facebook"></a>
           <a href=""> <img src="assets/img/inst.png" alt="inst"></a>
           <a href=""> <img src="assets/img/vk.png" alt="vk"></a>
-        </div>
       </div>
     </div>
-    <div class="contact-form">
+    <div class="contact__form__wrap">
       <h2>Подписаться на новости</h2>
       <form [formGroup]="emailForm" novalidate (ngSubmit)="submit()">
         <input type="text" name="email" placeholder="Email" formControlName="email">
@@ -104,7 +116,11 @@
       </form>
     </div>
   </div>
+  <app-footer ></app-footer>
 </section>
 
+</div>
 
-<app-footer></app-footer>
+
+
+

@@ -3,7 +3,8 @@
     <h2>Товары</h2>
     <input type="text" name="" id="" placeholder="найти" [(ngModel)]="search">
     <div class='cardWrap' *ngFor="let product of products | searchProduct:search">
-      <div class="cardImg">{{product.img}}</div>
+      <div class="cardImg">
+        <img src="{{product.img}}" alt=""></div>
       <div class="cardTxt">
         <h2>{{product.title}}</h2>
         <p>

@@ -9,7 +9,7 @@ import { ProductServices } from 'src/app/shared/product.services';
 @Component({
   selector: 'app-add-page',
   templateUrl: './add-page.component.html',
-  styleUrls: ['./add-page.component.css']
+  styleUrls: ['./add-page.component.scss']
 })
 export class AddPageComponent implements OnInit {
   @ViewChild("fileUpload", { static: false }) fileUpload: ElementRef; files = [];

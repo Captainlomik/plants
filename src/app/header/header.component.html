@@ -1,4 +1,4 @@
-<app-alert></app-alert>
+<!--<app-alert></app-alert>
 <nav class="navbar  navbar-expand-lg navbar-light">
     <div class="navbar-collapse">
         <div class="navbar-nav">
@@ -13,4 +13,22 @@
     <a href="" [routerLink]="'/personalArea'" >
         <img src="assets/img/account.png" alt="account">
     </a></div>
-    </nav>
+    </nav>-->
+
+
+<app-alert></app-alert>
+<div class="menu">
+  <div class="menu__wrapper">
+    <div class="menu__items">
+      <div> <a class="menu__items-link" [routerLink]="'/catalog'" routerLinkActive="active">Каталог</a></div>
+      <div ><a class="menu__items-link" href="/#Sent">Доставка</a></div>
+      <div > <a class="menu__items-link" href="/#Contact">Контакты</a></div>
+    </div>
+    <a class="menu__logo" style="width:200px" href="/"><img src="assets/img/logo.png" alt="logo"></a>
+    <div class="menu__personalArea">
+      <a href="" [routerLink]="'/personalArea'">
+        <img src="assets/img/account.png" alt="account">
+      </a>
+    </div>
+  </div>
+</div>

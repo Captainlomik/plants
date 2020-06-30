@@ -28,7 +28,7 @@ import {PersonalAreaComponent } from './login/personal-area/personal-area.compon
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 
-
+import { AngularFullpageModule } from '@fullpage/angular-fullpage';
 
 const INTERSEPTOR:Provider={
 provide:HTTP_INTERCEPTORS,
@@ -60,7 +60,8 @@ useClass:AuthInterseptor
     AngularFireStorageModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AngularFullpageModule
   ],
   providers: [INTERSEPTOR,  AlertService],
   bootstrap: [AppComponent]

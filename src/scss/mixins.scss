@@ -1,0 +1,75 @@
+
+@mixin h2
+{
+    font-family: 'Roboto Mono', monospace;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 42px;
+}
+
+@mixin  h3 {
+    font-family: 'Roboto Mono', monospace;
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 21px;
+}
+
+@mixin  p {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+@mixin  a {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@mixin  input__borderBottom {
+    outline: none;
+  border: none;
+  border-bottom: solid 2px #80B435;
+  background-color: #F7F8F7;
+  margin: 2em 0;
+  font-size: 20px;
+}
+
+@mixin  sercle {
+    margin-left: 2em;
+    padding: 5px;
+    border: 1px solid $green_color;
+    border-radius: 30px;
+    
+}
+
+@mixin  sercleHover {
+    border: 1px dotted green;
+    border-radius: 30px;
+}
+
+@mixin  buttonWhite {
+    width: 200px;
+    height: 40px;
+    background: #ffff;
+    border-radius: 50px;
+    display: block;
+    color: #80B435;
+    padding-top: 5px;
+    border: 2px solid #80B435;
+    font-size: 18px;
+    margin: 0;
+    text-align: center;
+}
+
+@mixin  buttonWhiteHover {
+    background: #80B435;
+    border: 2px solid #80B435;
+    color: #ffffff;
+}

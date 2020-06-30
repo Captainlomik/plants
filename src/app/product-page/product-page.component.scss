@@ -1,0 +1,103 @@
+@import 'var';
+@import 'mixins';
+
+::ng-deep .menu__wrapper
+{
+  position: relative !important;
+}
+
+.product__wrap 
+{
+    width: 80%;
+    margin: 2em auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product__info 
+{
+    width: 60%;
+}
+.product__info h2 
+{
+    color: $green_color;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+}
+.product__img 
+{
+    width: 40%;
+}
+.product__img img 
+{
+    width: 90%;
+}
+a
+{
+    @include buttonWhite;
+}
+
+a:hover 
+{
+    @include buttonWhiteHover;
+}
+
+.price__color
+{
+color:$green_color;
+font-size: 24px;
+font-weight: 500;
+}
+
+.Print 
+{
+    display:none;
+}
+
+.headPopup
+{
+    margin-top: 1em;
+text-align: center;
+}
+label
+{
+    margin-top: 1em;
+}
+input 
+{
+    width: 100%;
+}
+
+button:disabled
+{
+    opacity:50%;
+}
+
+button:hover:disabled
+{
+    background: #80B435;
+    color: white;
+    border: 2px solid #80B435;
+}
+
+@media print { 
+    @page { margin: 1cm; }
+.product__img
+{
+    display:none;
+}
+
+.product__info 
+{
+    width:100%;
+}
+a 
+{
+    display:none;
+}
+.Print{
+    display: inline;
+}
+p { orphans: 3;}
+p { widows: 4;}
+}

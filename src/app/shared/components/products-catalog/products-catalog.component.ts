@@ -12,7 +12,7 @@ import { AlertService } from 'src/app/admin/shared/services/alert.service';
 @Component({
   selector: 'app-products-catalog',
   templateUrl: './products-catalog.component.html',
-  styleUrls: ['./products-catalog.component.css']
+  styleUrls: ['./products-catalog.component.scss']
 })
 export class ProductsCatalogComponent implements OnInit {
   @Input() product: Product;

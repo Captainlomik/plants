@@ -13,7 +13,12 @@
   background-position: center;
 }
 
-.header h2
+::ng-deep .menu__wrapper
+{
+  position: relative !important;
+}
+
+.header h1
 {
   text-align:center;
   margin-top: 2em;
@@ -34,8 +39,8 @@
 {
   display: flex;
   margin: 2em auto;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
+  justify-content: space-around;
   
 }
 .filterWrap 
@@ -68,34 +73,61 @@
   width: 95%;
 }
 
-.wrap 
+.cardWrap__card 
 {
   margin: 1em;
 }
 
-@media (min-width:320px) and (max-width:760px)
+@media (min-width:320px) and (max-width:767px)
 {
   .container-xl
   {
     padding: 0;
   }
-  .header h2
+  .header h1
   {
-    font-size: 24px;
-    margin: 2em auto;
+    font-size: 26px;
+    margin: 0 auto;
+    padding-bottom: 2em;
+    text-align: center;
   }
   .header
   {
-    height: 250px;
+    height: auto;
     margin-bottom: 3em;
-    background-size: auto;
+    background-size:cover;
     background-position-x: left;
     background-position-y: top;
   }
   .sortWrap
   {
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
     flex-wrap: wrap;
   }
+
+::ng-deep .menu__wrapper 
+{
+  margin: 0 !important;
+  padding: 15px 15px 0 15px !important;
+}
+
+
+}
+@media (min-width:767px) and (max-width:1224px){
+  .header
+  {
+    height: auto;
+  }
+  .header h1 
+  {
+    padding-bottom:0.9em ;
+  }
+  ::ng-deep .menu__wrapper 
+{
+  margin: 0 !important;
+  padding: 15px;
+  position: relative !important;
+  background:none !important;
+}
 }

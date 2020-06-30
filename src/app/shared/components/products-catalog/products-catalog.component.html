@@ -1,9 +1,10 @@
 <div class="productCard">
-  <div [routerLink]="['/product', product.id]"> 
-    <img src="{{product.img}}" alt="">
+  <div  class="product__src "[routerLink]="['/product', product.id]"> 
+    <img src="{{product.img}}" alt="" >
     <h2>{{product.title}}</h2>
-  </div>
+ 
   <p>{{product.price}} руб</p>
+ </div>
   <a  class="button" (click)="open(content)" >Заказать</a>
 </div>
 
@@ -36,7 +37,7 @@
     </div>
 </div>
   <div class="modal-footer">
-    <button type="submit" class="button"  [disabled]="buyForm.invalid || !maxCount">Заказать</button>
+    <button type="submit" class="button"  [disabled]="buyForm.invalid">Заказать</button>
   </div>
  </form>
  <app-alert></app-alert>

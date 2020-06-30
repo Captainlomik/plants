@@ -1,23 +1,42 @@
-import { ProductsCatalogComponent } from './../shared/components/products-catalog/products-catalog.component';
+import { Product } from './../shared/interfaces';
 import { Observable } from 'rxjs';
 import { ProductServices } from 'src/app/shared/product.services';
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../shared/interfaces';
 
 @Component({
   selector: 'app-catalog-page',
   templateUrl: './catalog-page.component.html',
-  styleUrls: ['./catalog-page.component.css']
+  styleUrls: ['./catalog-page.component.scss']
 })
 export class CatalogPageComponent implements OnInit {
 
-  search= '';
-products$:Observable<Product[]>;
-
-  constructor(private productServices:ProductServices) { }
+  search = '';
+  flag = true;
+  products$: Observable<Product[]>;
+  productEl: Product[] = []
+  
+  constructor(private productServices: ProductServices) { }
 
   ngOnInit() {
-   this.products$= this.productServices.getAll();
+    this.fetchProduct(this.flag)
+  }
+
+  fetchProduct(flag: boolean) {
+   this.productServices.getAll().subscribe(product => {
+     this.productEl = this.sort1(product, flag);
+      })
+     
+  }
+
+  sort1(product, flag: boolean) {
+    product.sort(function (a, b) {
+      if (flag === true) {
+        return a.price - b.price;
+      }
+      else if (flag === false)
+        return b.price - a.price;
+    });
+    return product;
   }
 
 }

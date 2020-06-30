@@ -1,17 +1,54 @@
-<div class="container-xl">
+<div class="product">
 <app-header></app-header>
-<div *ngIf="product$ | async as product; else loading">
-    <img src="{{product.img}}" alt="">
-    <div class="info">
+<div class="product__wrap" *ngIf="product$ | async as product; else loading">
+   <div class="product__img"><img src="{{product.img}}" alt="" ></div> 
+    <div class="product__info">
         <h2>{{product.title}}</h2>
-        Описание продукта:<quill-view-html [content]="product.text"></quill-view-html>
-    <div> <p>Цена продукта:{{product.price}} руб</p></div>
-        Количество на складе: <p> Количество на складе: {{product.count}}</p>
-        
+        <p><quill-view-html [content]="product.text"></quill-view-html></p>
+      <p> Доступное количество: {{product.count}}</p>
+      <p>Цена: <span class="price__color">{{product.price}} ₽</span> </p>
+      <div><a  class="button" (click)="open(content1)" >Заказать</a></div>
+      <div class="Print">Адрес самовывоза: г.Москва, Б.Моросейка, д32, офис 4</div>
     </div>
+</div> 
 </div>
-</div>
-<ng-template #loading>
+
+<ng-template #content1 let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Оформить заказ</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="headPopup">
+      <h3>Название:</h3>
+    </div>
+  <form [formGroup]="buyForm" novalidate (ngSubmit)="submit()">
+  <div class="modal-body">
+   
+      <div class="form-group">
+        <h4>Ваши данные:</h4>
+          <label for="name">Имя</label>
+          <input type="text" id="name" formControlName="name">
+          <label for="surname" >Фамилия</label>
+          <input type="text" id="surname" formControlName="surname">
+          <label for="email" >email</label>
+          <input type="text" id="email" formControlName="email">
+          <label for="phone" >Телефон</label>
+          <input type="text" id="phone" formControlName="phone">
+          <label for="count">Количество</label>
+          <input  type="number" id="count" formControlName="count">
+          
+      </div>
+  </div>
+    <div class="modal-footer">
+      <button type="submit" class="button"  [disabled]="buyForm.invalid">Заказать</button>
+    </div>
+   </form>
+   <app-alert></app-alert>
+  </ng-template>
+
+  <ng-template #loading>
     <img src="assets/img/loader.png" alt="">
     <h2>Загружаю...</h2>
 </ng-template>

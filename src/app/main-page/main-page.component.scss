@@ -1,0 +1,476 @@
+@import 'mixins';
+@import 'var';
+
+
+/*----------FIRST SCREEN------*/
+.firstScreen__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: auto;
+  margin:0 auto ;
+  text-align: center;
+
+}
+
+.firstScreen>.fp-tableCell {
+  vertical-align: bottom !important;
+}
+
+.firstScreen__img {
+  background-size: cover;
+  width: 50%;
+  margin: 0 auto;
+
+}
+
+
+.firstScreen__txt {
+  width: 80%;
+  margin: 0 auto 4em auto;
+  text-align: center;
+  animation: moveY 1s ease-in-out;
+}
+
+@keyframes moveY {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+
+/* ----------SECOND SCREEN-----------*/
+
+.line {
+  margin: 5em auto;
+  height: 90px;
+  width: 15px;
+  border-left: 2px solid $green_color;
+}
+
+.about {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-items: center;
+}
+
+.about__img {
+  width: 40%;
+  position: relative;
+  order:1;
+}
+
+.about__img img {
+  width: 100%;
+  animation: moveX 1s ease-in-out;
+}
+
+.about__text {
+  width: 40%;
+  text-align: center;
+  margin-left: 5em;
+  margin-right: 5em;
+order: 2;
+}
+
+.about__text p {
+  margin-top: 3em;
+  text-align: center;
+}
+
+@keyframes moveX {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+
+.about__contacts_wrap img {
+@include sercle;
+}
+
+.about__contacts_wrap img:hover {
+  @include sercleHover;
+}
+
+/*------THIRD SCREEN------*/
+
+.products h2 {
+  text-align: center;
+}
+
+.products a {
+  width: 200px;
+  height: 40px;
+  background: #80B435;
+  border-radius: 50px;
+  display: block;
+  color: white;
+  padding-top: 5px;
+  border: 2px solid #80B435;
+  font-size: 18px;
+  margin: 0 auto;
+}
+
+.products a:hover {
+  background: #ffff;
+  border: 2px solid #80B435;
+  color: #80B435;
+}
+
+.cardWrap {
+  margin: 3em auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 95%;
+}
+
+.wrap {
+  margin: 1em;
+}
+
+
+/*---------FOURTHSCREEN------*/
+
+.sent__wrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-items: center;
+}
+
+.sent__wrap__txt {
+  width: 40%;
+  text-align: center;
+  margin-left: 5em;
+  margin-right: 5em;
+
+}
+
+.sent__wrap__img img {
+  width: 100%;
+}
+
+.sent__wrap__img {
+  width: 50%;
+}
+
+
+/*--------FIFTHSCREEN-------*/
+.block__wrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  background: #F7F8F7;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
+  width: 80%;
+  margin: 0 auto;
+  height: 170px;
+}
+
+.block__wrap__row {
+  margin-top: 2em;
+  text-align: center;
+  width: 35%;
+}
+
+.block__wrap__row p {
+  font-size: 16px;
+  color: grey;
+}
+
+.block__wrap .block__wrap__row::before {
+  content: ' ';
+  border-left: 2px solid #80B435;
+  height: 100px;
+  float: right;
+  margin-left: 2em;
+}
+.block__wrap .block__wrap__row:last-child::before
+{
+  border-left: none;
+}
+
+/*-------CONTACTS---------*/
+.contact__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contact__info__wrap {
+  width: 40%;
+}
+
+.contact__info__wrap img {
+@include sercle
+}
+
+.contact__info__wrap img:hover {
+  @include sercleHover;
+}
+.contact__form__wrap a {
+ @include buttonWhite;
+}
+
+.contact__form__wrap a:hover {
+  @include buttonWhiteHover;
+}
+
+.contact__form__wrap button:focus {
+  outline: none;
+}
+
+
+.contact__form__wrap input {
+  width: 70%;
+  @include input__borderBottom
+}
+
+.contact__info__wrap h3 {
+  margin-top: 3vh;
+}
+
+.contact__info__srcWrap {
+  margin-top: 3em;
+}
+
+
+
+@media (min-width:320px) and (max-width:767px) {
+  div#fp-nav 
+  {
+    display:  none;
+  }
+
+  .firstScreen__txt
+  {
+    animation: none;
+    margin: 0 auto;
+    width: 95%;
+  }
+
+  .firstScreen__img
+  {
+    width: 95%;
+  }
+
+  .firstScreen__img img 
+  {
+    width: 100% ;
+  }
+  .firstScreen>.fp-tableCell {
+   height: auto !important;
+  }
+  
+  section.firstScreen 
+  {
+    height: auto !important;
+  }
+/*------Scree2----*/
+.secondScreen 
+{
+  margin-top: 3em;
+}
+.about
+{
+  flex-wrap: wrap;
+}
+
+.about__text
+{
+  width: 95%;
+  margin: 1.5em auto 0;
+  order:1;
+}
+
+.about__img
+{
+  order:2;
+
+}
+.about__contacts_wrap
+{
+  width: 90%;
+  margin: 0 auto;
+}
+.about__text p 
+{
+margin-top: 1em;
+}
+
+/*----Screen3---*/
+
+.thirdScreen
+{
+margin-top: 3em;
+}
+
+.cardWrap
+{
+  margin: 1em auto;
+}
+
+/*-----Screen4--*/
+.FourthScreen 
+{
+  margin-top:3em ;
+}
+
+.sent__wrap__txt
+{
+  width: 95%;
+  margin: 0 auto;
+}
+.sent__wrap__img
+{
+  width: 100%;
+}
+.sent__wrap
+{
+  flex-wrap: wrap;
+}
+.blocInfo
+{
+  display: none;
+} 
+/*---Section5----*/
+.contact
+{
+  margin-top: 3em;
+}
+.contact__wrap
+{
+  flex-wrap: wrap;
+}
+.contact__info__wrap
+{
+  width: 95%;
+  margin: 0 auto;
+}
+
+.contact__form__wrap
+{
+  margin-top: 3em;
+}
+.contact__info__wrap h2 
+{
+  text-align: center;
+}
+
+.contact__form__wrap input
+{
+  width: 95%;
+}
+
+button 
+{
+  width: 100%;
+}
+
+.contact__form__wrap a 
+{
+  width: 95%;
+}
+
+  .collapse:not(.show) {
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+@media (min-width:768px) and (max-width:1023px) {
+  .firstScreen__txt
+  {
+    margin: 0 auto;
+    width: 95%;
+  }
+
+  .firstScreen__img
+  {
+    width: 100%;
+  }
+  .cardWrap
+  {
+    flex-wrap: wrap;
+  }
+
+  .secondScreen>.fp-tableCell {
+    vertical-align: bottom !important;
+  }
+  .about 
+  {
+    align-items: flex-end;
+  }
+
+  .about__img 
+  {
+    bottom: -80px;
+  }
+
+  .firstScreen
+  {
+    margin-top: 7em;
+  }
+
+  section 
+  {
+    margin-top: 7em;
+    height: auto !important;
+  }
+
+
+  .block__wrap
+  {
+    width: 100%;
+  }
+.contact__wrap
+{
+  width:95%;
+  margin:0 auto;
+}
+  .contact__info__wrap
+
+  {
+    width: 50%;
+  }
+  .contact__form__wrap
+  {
+    margin-left: 2em;
+  }
+
+  .cardWrap
+  {
+    margin: 1em auto;
+  }
+
+  .about__img
+  {
+    bottom: 0;
+  }
+  .about
+  {
+    align-items: center;
+  }
+}
+
+  @media (min-width:1024px) and (max-width:1080px)
+  {
+    .cardWrap
+    {
+      width: 100%;
+    }
+  }
+

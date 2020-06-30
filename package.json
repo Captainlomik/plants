@@ -21,6 +21,7 @@
     "@angular/pwa": "^0.901.3",
     "@angular/router": "~8.2.14",
     "@angular/service-worker": "~8.2.14",
+    "@fullpage/angular-fullpage": "0.0.14",
     "@ng-bootstrap/ng-bootstrap": "^5.0.0",
     "angularfire2": "^5.4.2",
     "bootstrap": "^4.4.1",

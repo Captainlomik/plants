@@ -5,7 +5,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.css']
+  styleUrls: ['./alert.component.scss']
 })
 export class AlertComponent implements OnInit, OnDestroy {
   @Input() delay = 5000;

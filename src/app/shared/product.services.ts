@@ -1,5 +1,5 @@
+import { environment } from './../../environments/environment.prod';
 import { Product, FbCreateResponse } from 'src/app/shared/interfaces';
-import { environment } from 'src/environments/environment';
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -52,6 +52,11 @@ export class ProductServices {
 
     update(product: Product): Observable<Product>{//редатирование
 return this.http.patch<Product>(`${environment.fbDbUrl}/product/${product.id}.json`, product)
+    }
+
+    getProduct()
+    {
+        return this.http.get(`${environment.fbDbUrl}product.json`)
     }
 }
 

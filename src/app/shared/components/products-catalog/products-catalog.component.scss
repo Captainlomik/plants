@@ -69,3 +69,14 @@ button:hover:disabled
     color: white;
     border: 2px solid #80B435;
 }
+
+img 
+{
+  max-width:80% ;
+  margin: 0 auto;
+}
+.product__src 
+{
+    cursor: pointer;
+    text-align: center;
+}
