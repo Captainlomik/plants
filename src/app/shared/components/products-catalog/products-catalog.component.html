@@ -32,12 +32,12 @@
         <label for="phone" >Телефон</label>
         <input type="text" id="phone" formControlName="phone">
         <label for="count">Количество</label>
-        <input  type="number" id="count" formControlName="count">
+        <input  type="number" id="count" formControlName="count"  placeholder="{{product.count}}">
         
     </div>
 </div>
   <div class="modal-footer">
-    <button type="submit" class="button"  [disabled]="buyForm.invalid">Заказать</button>
+    <button type="submit" class="button"  [disabled]="buyForm.invalid || flagFalse==false">Заказать</button>
   </div>
  </form>
  <app-alert></app-alert>

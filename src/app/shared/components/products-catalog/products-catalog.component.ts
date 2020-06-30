@@ -1,12 +1,11 @@
-import { ProductServices } from './../../product.services';
-import { Router } from '@angular/router';
-
 import { orderServices } from './../../order.services';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Product, Order } from './../../interfaces';
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { AlertService } from 'src/app/admin/shared/services/alert.service';
+import { min } from 'rxjs/operators';
+import { ProductServices } from '../../product.services';
 
 
 @Component({
@@ -19,14 +18,13 @@ export class ProductsCatalogComponent implements OnInit {
   closeResult = '';
   buyForm: FormGroup;
   alertService: any;
-  countProduct:number;
-  maxCount=false;
-  countMax:number;
+  flagFalse:boolean;
+
 
   constructor(private modalService: NgbModal,
     private orderService: orderServices,
     private alert: AlertService,
-    private productservices: ProductServices) { }
+    private productServices:ProductServices) { }
 
   ngOnInit() {
     this.buyForm = new FormGroup(
@@ -35,14 +33,13 @@ export class ProductsCatalogComponent implements OnInit {
         surname: new FormControl('', Validators.required),
         phone: new FormControl('', Validators.required),
         email: new FormControl('', [Validators.required, Validators.email]),
-        count: new FormControl('', Validators.required)
+        count: new FormControl('', [Validators.required, Validators.max(this.product.count), Validators.min(1)])
       }
     )
 
   }
 
   submit() {
-    
     const order: Order = {
       name: this.buyForm.value.name,
       surname: this.buyForm.value.surname,
@@ -53,8 +50,8 @@ export class ProductsCatalogComponent implements OnInit {
       productTitle: this.product.title,
       status: 'newOrder'
     }
-  
     this.orderService.add(order).subscribe(() => {
+      this.countProduct()
       this.buyForm.reset();
       this.alert.success('Заказ успешно оформлен. Ожидайте звонка')
       this.modalService.dismissAll();
@@ -62,8 +59,25 @@ export class ProductsCatalogComponent implements OnInit {
   }
 
 
+
+  countProduct ()
+{
+  this.productServices.update({
+    id: this.product.id,
+      title: this.product.title,
+      text: this.product.text,
+      price: this.product.price,
+      count: this.product.count-this.buyForm.value.count,
+      img: this.product.img
+  }).subscribe(() => {
+   console.log(this.product.count)
+    
+  });
+  
+}
+
   open(content) {
-this.getCountProduct(this.product)
+ console.log(this.product.title)
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -79,16 +93,6 @@ this.getCountProduct(this.product)
       return `with: ${reason}`;
     }
   }
-getCountProduct(prod:Product)
-{
- if(this.countMax<prod.count)
- {
- this.maxCount=true;
- }
- else
- this.maxCount=false;
- console.log("MaxCount"+this.maxCount)
- console.log(this.countMax);
-}
+
 
 }
