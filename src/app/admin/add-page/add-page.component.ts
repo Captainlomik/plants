@@ -1,4 +1,4 @@
-import { UploadService } from './../shared/services/upload.service';
+
 import { AlertService } from './../shared/services/alert.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
@@ -18,7 +18,7 @@ export class AddPageComponent implements OnInit {
   constructor(
     private productServices: ProductServices,
     private alertService: AlertService,
-    private uploadServise: UploadService) { }
+   ) { }
 
   ngOnInit() {
     this.addForm = new FormGroup(
