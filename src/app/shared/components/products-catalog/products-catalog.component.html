@@ -1,11 +1,12 @@
-<div class="productCard">
+<div class="productCard" [ngClass]="{'finalProduct': finalProduct}">
+  <div *ngIf="finalProduct" class="final__mark"> <h3>Закончилось :(</h3></div>
   <div  class="product__src "[routerLink]="['/product', product.id]"> 
     <img src="{{product.img}}" alt="" >
     <h2>{{product.title}}</h2>
  
   <p>{{product.price}} руб</p>
  </div>
-  <a  class="button" (click)="open(content)" >Заказать</a>
+  <a  class="button"  (click)="open(content)" >Заказать</a>
 </div>
 
 <ng-template #content let-modal>
@@ -33,6 +34,9 @@
         <input type="text" id="phone" formControlName="phone">
         <label for="count">Количество</label>
         <input  type="number" id="count" formControlName="count"  placeholder="{{product.count}}">
+        <div class="validation" *ngIf="buyForm.controls['count'].invalid && buyForm.controls['count'].touched">
+          <p>Такого количества товара нет в наличии.</p>
+        </div>
         
     </div>
 </div>

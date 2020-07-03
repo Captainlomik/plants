@@ -33,4 +33,15 @@ export class orderServices
             }))
     }))
    }
+
+   del(id:string)
+   {
+    
+        return this.http.delete(`${environment.fbDbUrl}/order/${id}.json`)
+   }
+
+   change(order:Order)
+   {
+    return this.http.patch<Order>(`${environment.fbDbUrl}/order/${order.id}.json`, order)
+   }
 }

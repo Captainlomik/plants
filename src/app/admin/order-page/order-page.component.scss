@@ -15,17 +15,56 @@ h2
 .orderWrap 
 {
    padding: 1em;
-    border:1px solid #80B345;
+    border:2px solid grey;
     margin:1em;
    border-radius: 20px;
 }
 
 input 
 {
-    width: 40%;
-    margin: 1em 30%;
+    width: 50%;
     border-radius: 10px;
     border: 1px solid #80B354;
     outline: none;
     padding-left:2px;
+    margin: 1em auto;
+}
+
+.borderColor
+{
+    border:2px solid red;
+}
+
+.btn_del
+{
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 0 1em;
+}
+
+.btn_del:hover 
+{
+    border: 1px dotted red;
+}
+
+.btn__ord
+{
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 0 1em;
+    margin-left: 1em;
+}
+
+.orangeColor
+{
+    border:2px solid orange;
+}
+
+.order__filters
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 60%;
+    margin: 0 auto;
 }

@@ -1,3 +1,5 @@
+import { Email } from './../../shared/interfaces';
+import { emailServices } from './../../shared/email.services';
 import { environment } from 'src/environments/environment';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,10 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private emailservice: emailServices) { }
+  email: Email[] = []
 
   ngOnInit() {
-
+    this.emailservice.getAll().subscribe(email => {
+      this.email = email;
+    })
+    
   }
 
 }

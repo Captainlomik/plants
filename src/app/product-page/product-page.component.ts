@@ -72,10 +72,7 @@ export class ProductPageComponent implements OnInit {
 
   }
 
-inform()
-{
-  console.log(this.product)
-}
+
 
 
   open(content1) {

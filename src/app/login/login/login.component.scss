@@ -162,12 +162,14 @@ label{
 {
   section 
   {
-    background-size: auto;
+    background-size: cover;
+    min-height: 100vh;
   }
   form input
   {
     width: 350px;
   }
+  
 }
 
 
@@ -190,14 +192,18 @@ label{
     }
     section 
     {
-      background-size: auto;
+      background-size: cover;
       width: 100%;
-      height: 100%;
       background-position: top right;
     }
 
     .loginAdmin
     {
-      height: 100%;
+     height: auto;
+    }
+    
+    .reg 
+    {
+      padding-bottom:1em;
     }
   }

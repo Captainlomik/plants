@@ -5,7 +5,8 @@
 <section class="container-xl sort">
   <div class="sortWrap">
     <div class="filterWrap"><p>Сортировка:</p>
-    <button class="button btn" (click)="flag=!flag" (click)="fetchProduct(flag)">По цене</button></div>
+    <button class="button btn" (click)="flag=!flag" (click)="fetchProduct(flag, 1)">По цене</button>
+    <button class="button btn" (click)="flag=!flag" (click)="fetchProduct(flag, 2)">По наличию</button></div>
     <input type="text" class="input" placeholder="Найти" [(ngModel)]="search">
     
   </div>

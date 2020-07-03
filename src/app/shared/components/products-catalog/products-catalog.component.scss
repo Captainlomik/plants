@@ -80,3 +80,34 @@ img
     cursor: pointer;
     text-align: center;
 }
+
+.validation p
+{
+    font-size: 14px ;
+    color:red;
+}
+
+.finalProduct
+{
+    opacity: 0.3;
+    cursor:default;
+    text-align: center;
+    
+}
+
+.finalProduct .product__src
+{
+    cursor: default;
+}
+
+.finalProduct h2 
+{
+    cursor: default;
+}
+
+.finalProduct a
+{
+cursor: default;
+pointer-events: none; 
+}
+

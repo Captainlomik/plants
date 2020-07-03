@@ -11,30 +11,35 @@ import { Component, OnInit } from '@angular/core';
 export class CatalogPageComponent implements OnInit {
 
   search = '';
-  flag = true;
+  flag: boolean = true;
+  type: number = 0;
   products$: Observable<Product[]>;
   productEl: Product[] = []
-  
+
   constructor(private productServices: ProductServices) { }
 
   ngOnInit() {
-    this.fetchProduct(this.flag)
+    this.fetchProduct(this.flag, this.type)
   }
 
-  fetchProduct(flag: boolean) {
-   this.productServices.getAll().subscribe(product => {
-     this.productEl = this.sort1(product, flag);
-      })
-     
+  fetchProduct(flag: boolean, type: number) {
+    this.productServices.getAll().subscribe(product => {
+      this.productEl = this.sort1(product, flag, type);
+    })
+
   }
 
-  sort1(product, flag: boolean) {
+  sort1(product, flag: boolean, type: number) {
     product.sort(function (a, b) {
-      if (flag === true) {
+      if (flag === true && type === 1) {
         return a.price - b.price;
       }
-      else if (flag === false)
+      else if (flag === false && type === 1)
         return b.price - a.price;
+      else if (flag === true && type === 2)
+        return a.count - b.count
+      else  (flag === false && type === 2)
+        return b.count - a.count;
     });
     return product;
   }

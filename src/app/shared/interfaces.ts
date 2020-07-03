@@ -35,6 +35,7 @@ export interface Order {
   productTitle?: string;
   count: number;
   status?:string;
+  stat?:boolean;
 }
 
 export interface Email 

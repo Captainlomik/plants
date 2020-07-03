@@ -78,6 +78,14 @@
   margin: 1em;
 }
 
+button:focus {
+  box-shadow: none;
+}
+.btn:hover 
+{
+  border-bottom: 2px solid #80B435;
+}
+
 @media (min-width:320px) and (max-width:767px)
 {
   .container-xl

@@ -19,6 +19,7 @@ export class ProductsCatalogComponent implements OnInit {
   buyForm: FormGroup;
   alertService: any;
   flagFalse:boolean;
+  finalProduct:boolean=false;
 
 
   constructor(private modalService: NgbModal,
@@ -27,6 +28,8 @@ export class ProductsCatalogComponent implements OnInit {
     private productServices:ProductServices) { }
 
   ngOnInit() {
+    this.endProduct();
+
     this.buyForm = new FormGroup(
       {
         name: new FormControl('', Validators.required),
@@ -34,8 +37,7 @@ export class ProductsCatalogComponent implements OnInit {
         phone: new FormControl('', Validators.required),
         email: new FormControl('', [Validators.required, Validators.email]),
         count: new FormControl('', [Validators.required, Validators.max(this.product.count), Validators.min(1)])
-      }
-    )
+      })
 
   }
 
@@ -48,7 +50,8 @@ export class ProductsCatalogComponent implements OnInit {
       count: this.buyForm.value.count,
       productId: this.product.id,
       productTitle: this.product.title,
-      status: 'newOrder'
+      status: 'Новый заказ',
+      stat:false
     }
     this.orderService.add(order).subscribe(() => {
       this.countProduct()
@@ -71,9 +74,13 @@ export class ProductsCatalogComponent implements OnInit {
       img: this.product.img
   }).subscribe(() => {
    console.log(this.product.count)
-    
-  });
-  
+  }); 
+}
+
+endProduct()
+{
+  if(this.product.count==0)
+  this.finalProduct=true;
 }
 
   open(content) {

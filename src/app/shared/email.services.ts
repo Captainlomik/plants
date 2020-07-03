@@ -22,6 +22,13 @@ export class emailServices
     getAll()
     {
         return this.http.get(`${environment.fbDbUrl}email.json`)
+        .pipe(map((response: { [key: string]: any }) => {
+            return Object.keys(response)
+                .map(key => ({
+                    ...response[key],
+                    id: key
+                }))
+        }))
     }
 
 }

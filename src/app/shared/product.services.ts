@@ -50,12 +50,11 @@ export class ProductServices {
             }))
     }
 
-    update(product: Product): Observable<Product>{//редатирование
-return this.http.patch<Product>(`${environment.fbDbUrl}/product/${product.id}.json`, product)
+    update(product: Product): Observable<Product> {//редатирование
+        return this.http.patch<Product>(`${environment.fbDbUrl}/product/${product.id}.json`, product)
     }
 
-    getProduct()
-    {
+    getProduct() {
         return this.http.get(`${environment.fbDbUrl}product.json`)
     }
 }
