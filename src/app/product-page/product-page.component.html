@@ -1,13 +1,18 @@
 <div class="product">
-<app-header></app-header>
-<div class="product__wrap" *ngIf="product$ | async as product; else loading">
-   <div class="product__img"><img src="{{product.img}}" alt="" ></div> 
+  <app-header></app-header>
+  <div class="product__wrap" *ngIf="product$ | async as product; else loading">
+    <div class="product__img"><img src="{{product.img}}" alt=""></div>
     <div class="product__info">
-        <h2>{{product.title}}</h2>
-        <p><quill-view-html [content]="product.text"></quill-view-html></p>
+      <h2>{{product.title}}</h2>
+      <p>
+        <quill-view-html [content]="product.text"></quill-view-html>
+      </p>
       <p> Доступное количество: {{product.count}}</p>
       <p>Цена: <span class="price__color">{{product.price}} ₽</span> </p>
-      <div><a  class="button" (click)="open(content1)" >Заказать</a></div>
+      <div class="buttons">
+        <a class="button__order" (click)="open(content1)">Заказать</a>
+        <a  class="button__cart" (click)="cart(product)">В корзину</a>
+      </div>
       <div class="Print">Адрес самовывоза: г.Москва, Б.Моросейка, д32, офис 4</div>
     </div>
 
@@ -21,38 +26,38 @@
       <div class="headPopup">
         <h3>Название:{{product.title}}</h3>
       </div>
-    <form [formGroup]="buyForm" novalidate (ngSubmit)="submit()">
-    <div class="modal-body">
-     
-        <div class="form-group">
-          <h4>Ваши данные:</h4>
+      <form [formGroup]="buyForm" novalidate (ngSubmit)="submit()">
+        <div class="modal-body">
+
+          <div class="form-group">
+            <h4>Ваши данные:</h4>
             <label for="name">Имя</label>
             <input type="text" id="name" formControlName="name">
-            <label for="surname" >Фамилия</label>
+            <label for="surname">Фамилия</label>
             <input type="text" id="surname" formControlName="surname">
-            <label for="email" >email</label>
+            <label for="email">email</label>
             <input type="text" id="email" formControlName="email">
-            <label for="phone" >Телефон</label>
+            <label for="phone">Телефон</label>
             <input type="text" id="phone" formControlName="phone">
             <label for="count">Количество</label>
-            <input  type="number" id="count" formControlName="count">
-            
+            <input type="number" id="count" formControlName="count">
+
+          </div>
         </div>
-    </div>
-      <div class="modal-footer">
-        <button type="submit" class="button"  [disabled]="buyForm.invalid">Заказать</button>
-      </div>
-     </form>
-     <app-alert></app-alert>
+        <div class="modal-footer">
+          <button type="submit" class="button" [disabled]="buyForm.invalid">Заказать</button>
+        </div>
+      </form>
+      <app-alert></app-alert>
     </ng-template>
 
 
-</div> 
+  </div>
 </div>
 
 
 
-  <ng-template #loading>
-    <img src="assets/img/loader.png" alt="">
-    <h2>Загружаю...</h2>
+<ng-template #loading>
+  <img src="assets/img/loader.png" alt="">
+  <h2>Загружаю...</h2>
 </ng-template>

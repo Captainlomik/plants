@@ -97,11 +97,11 @@ order: 2;
 
 
 .about__contacts_wrap img {
-@include sercle;
+@include circle;
 }
 
 .about__contacts_wrap img:hover {
-  @include sercleHover;
+  @include circleHover;
 }
 
 /*------THIRD SCREEN------*/
@@ -113,24 +113,24 @@ order: 2;
 .products a {
   width: 200px;
   height: 40px;
-  background: #80B435;
+  background: $green_color;
   border-radius: 50px;
   display: block;
   color: white;
   padding-top: 5px;
-  border: 2px solid #80B435;
+  border: 2px solid  $green_color;
   font-size: 18px;
   margin: 0 auto;
 }
 
 .products a:hover {
   background: #ffff;
-  border: 2px solid #80B435;
+  border: 2px solid;
   color: #80B435;
 }
 
 .cardWrap {
-  margin: 3em auto;
+  margin: 2em auto;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -215,11 +215,11 @@ order: 2;
 }
 
 .contact__info__wrap img {
-@include sercle
+@include circle
 }
 
 .contact__info__wrap img:hover {
-  @include sercleHover;
+  @include circleHover;
 }
 .contact__form__wrap a {
  @include buttonWhite;

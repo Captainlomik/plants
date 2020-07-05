@@ -1,103 +1,122 @@
 @import 'var';
 @import 'mixins';
 
-::ng-deep .menu__wrapper
-{
+::ng-deep .menu__wrapper {
   position: relative !important;
 }
 
-.product__wrap 
-{
-    width: 80%;
-    margin: 2em auto;
-    display: flex;
-    justify-content: space-between;
+.product__wrap {
+  width: 80%;
+  margin: 2em auto;
+  display: flex;
+  justify-content: space-between;
 }
 
-.product__info 
-{
-    width: 60%;
-}
-.product__info h2 
-{
-    color: $green_color;
-    font-weight: 500;
-    margin-bottom: 0.5em;
-}
-.product__img 
-{
-    width: 40%;
-}
-.product__img img 
-{
-    width: 90%;
-}
-a
-{
-    @include buttonWhite;
+.product__info {
+  width: 60%;
 }
 
-a:hover 
-{
-    @include buttonWhiteHover;
+.product__info h2 {
+  color: $green_color;
+  font-weight: 500;
+  margin-bottom: 0.5em;
 }
 
-.price__color
-{
-color:$green_color;
-font-size: 24px;
-font-weight: 500;
+.product__img {
+  width: 40%;
 }
 
-.Print 
-{
-    display:none;
+.product__img img {
+  width: 90%;
 }
 
-.headPopup
-{
-    margin-top: 1em;
-text-align: center;
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  align-items: center;
 }
-label
-{
-    margin-top: 1em;
+
+.button__cart {
+  @include buttonGreen;
 }
-input 
-{
+
+.button__cart:hover {
+  @include buttonGreenHover;
+}
+
+.button__order {
+  @include buttonWhite;
+}
+
+.button__order:hover {
+  @include buttonWhiteHover;
+}
+
+.price__color {
+  color: $green_color;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.Print {
+  display: none;
+}
+
+.headPopup {
+  margin-top: 1em;
+  text-align: center;
+}
+
+label {
+  margin-top: 1em;
+}
+
+input {
+  width: 100%;
+}
+
+button:disabled {
+  opacity: 50%;
+}
+
+button:hover:disabled {
+  background: #80B435;
+  color: white;
+  border: 2px solid #80B435;
+}
+
+@media print {
+  @page {
+    margin: 1cm;
+  }
+
+  .product__img {
+    display: none;
+  }
+
+  .product__info {
     width: 100%;
-}
+  }
 
-button:disabled
-{
-    opacity:50%;
-}
+  a {
+    display: none;
+  }
 
-button:hover:disabled
-{
-    background: #80B435;
-    color: white;
-    border: 2px solid #80B435;
-}
+  .Print {
+    display: inline-block;
+    margin-top: 1em;
+  }
 
-@media print { 
-    @page { margin: 1cm; }
-.product__img
-{
-    display:none;
-}
+  p {
+    orphans: 3;
+  }
 
-.product__info 
-{
-    width:100%;
-}
-a 
-{
-    display:none;
-}
-.Print{
-    display: inline;
-}
-p { orphans: 3;}
-p { widows: 4;}
+  p {
+    widows: 4;
+  }
+
+  a[href^="http"]:not([href*="plant.ru"]):after {
+    content: " ("attr(href) ")";
+  }
 }

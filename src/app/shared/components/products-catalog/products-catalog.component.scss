@@ -1,113 +1,107 @@
-.productCard
-{
-    border:1px solid #80b435;
-    border-radius: 20px;
-    padding:2em;
-    width: 300px;
-    height: 100%;
-   display: flex;
-   flex-direction: column;
-}
-.productCard h2 
-{
-    color: #80b435;
-    font-weight: 500;
-    text-align: center;
-    word-wrap: break-word;
-    cursor: pointer;
-}
-.productCard p 
-{
-    text-align: center;
-    font-weight: 500;
-    margin: 0 auto;
-}
-.button
-{
-width: 100%;
-height: 40px;
-background: #ffff;
-border-radius: 50px;
-display: block;
-color: #80B435;
-padding-top: 5px;
-border: 2px solid #80B435;
-font-size: 18px;
-text-align: center;
-margin-top: auto;
+@import 'var';
+@import 'mixins';
 
-}
-.button:hover
-{
-  background: #80B435;
-  border: 2px solid #80B435;
-  color: #ffffff;
+.productCard {
+  border: 1px solid $green_color;
+  border-radius: 20px;
+  padding: 2em;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.headPopup
-{
-    margin-top: 1em;
-text-align: center;
-}
-label
-{
-    margin-top: 1em;
-}
-input 
-{
-    width: 100%;
+.product__src h3 {
+  color: $green_color;
+  font-weight: 500;
+  text-align: center;
+  word-wrap: break-word;
+  cursor: pointer;
+  font-size: 28px;
+  margin: 0.5em auto;
+  line-height: 30px;
 }
 
-button:disabled
-{
-    opacity:50%;
-}
-
-button:hover:disabled
-{
-    background: #80B435;
-    color: white;
-    border: 2px solid #80B435;
-}
-
-img 
-{
-  max-width:80% ;
+.productCard p {
+  text-align: center;
+  font-weight: 500;
   margin: 0 auto;
 }
-.product__src 
-{
-    cursor: pointer;
-    text-align: center;
+
+.button {
+
+  @include buttonWhite;
+  width: 100%;
+  margin-top:auto;
 }
 
-.validation p
-{
-    font-size: 14px ;
-    color:red;
+.button:hover {
+  @include buttonWhiteHover
 }
 
-.finalProduct
-{
-    opacity: 0.3;
-    cursor:default;
-    text-align: center;
-    
+.headPopup {
+  margin-top: 1em;
+  text-align: center;
 }
 
-.finalProduct .product__src
-{
-    cursor: default;
+label {
+  margin-top: 1em;
 }
 
-.finalProduct h2 
-{
-    cursor: default;
+input {
+  width: 100%;
 }
 
-.finalProduct a
-{
-cursor: default;
-pointer-events: none; 
+button:disabled {
+  opacity: 50%;
 }
 
+button:hover:disabled {
+  background: #80B435;
+  color: white;
+  border: 2px solid #80B435;
+}
+
+.product__img {
+  width: 220px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.product__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.product__src {
+  cursor: pointer;
+  text-align: center;
+}
+
+.validation p {
+  font-size: 14px;
+  color: red;
+}
+
+.finalProduct {
+  opacity: 0.3;
+  cursor: default;
+  text-align: center;
+
+}
+
+.finalProduct .product__src {
+  cursor: default;
+}
+
+.finalProduct h2 {
+  cursor: default;
+}
+
+.finalProduct a {
+  cursor: default;
+  pointer-events: none;
+ 
+}

@@ -31,6 +31,7 @@ export class OrderPageComponent implements OnInit {
       this.orders = this.sortStatus(order, flag);
     })
   }
+
   sortStatus(order, flag: boolean) {
     order.sort(function (a, b) {
       if (flag == true)
@@ -68,7 +69,4 @@ export class OrderPageComponent implements OnInit {
 
   }
 
-  sort(flag: boolean) {
-
-  }
 }

@@ -23,9 +23,13 @@ width: 100%;
   order:2;
 }
 
-.menu__personalArea
+.shopArea 
 {
   order:3;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 10%;
 }
 
 .menu__items-link {
@@ -61,9 +65,13 @@ width: 100%;
   width: 70%;
 }
 
-.menu__personalArea
+.shopArea
 {
   order: 2;
+}
+.shopArea div 
+{
+  margin-left: 0.5em;
 }
 
   .collapse:not(.show) {

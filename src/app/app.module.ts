@@ -29,6 +29,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 import { AngularFullpageModule } from '@fullpage/angular-fullpage';
+import { CartComponent } from './cart/cart.component';
 
 const INTERSEPTOR:Provider={
 provide:HTTP_INTERCEPTORS,
@@ -48,6 +49,7 @@ useClass:AuthInterseptor
     LoginComponent,
     ProductsCatalogComponent,
     PersonalAreaComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

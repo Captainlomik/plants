@@ -28,9 +28,9 @@ export class MainPageComponent implements OnInit {
       menu: '#menu',
       navigation: true,
       navigationPosition: 'right',
-      responsiveWidth:1024,
+      responsiveWidth: 1024,
       // fullpage callbacks
-      
+
       afterLoad: (origin, destination, direction) => {
         console.log(origin.index);
       }
@@ -53,10 +53,16 @@ export class MainPageComponent implements OnInit {
       }
     )
 
+    this.personnumber()
+
+    
   }
 
 
-
+personnumber(){
+  let rand =Math.floor((Math.random()*100)+1).toString();
+    localStorage.setItem('person', rand)
+}
 
 
   submit() {

@@ -1,3 +1,4 @@
+import { cartServices } from './../shared/cart.services';
 
 import { orderServices } from './../shared/order.services';
 import { Product, Order } from './../shared/interfaces';
@@ -21,14 +22,15 @@ export class ProductPageComponent implements OnInit {
   product$: Observable<Product>;
   closeResult = '';
   buyForm: FormGroup;
-
+  cartData=[];
   id: string;
-
+items
   constructor(private route: ActivatedRoute,
     private productServices: ProductServices,
     private modalService: NgbModal,
     private orderService: orderServices,
-    private alert: AlertService) {
+    private alert: AlertService, 
+    private cartservice:cartServices) {
 
       this.product$ = this.route.params
       .pipe(switchMap((params: Params) => {
@@ -40,6 +42,8 @@ export class ProductPageComponent implements OnInit {
 
 
   ngOnInit() {
+
+    
 
     this.buyForm = new FormGroup(
       {
@@ -72,7 +76,10 @@ export class ProductPageComponent implements OnInit {
 
   }
 
-
+  cart(product:Product)
+  {
+        
+  }
 
 
   open(content1) {

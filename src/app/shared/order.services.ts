@@ -44,4 +44,18 @@ export class orderServices
    {
     return this.http.patch<Order>(`${environment.fbDbUrl}/order/${order.id}.json`, order)
    }
+
+   getById(id: string) {//получение по ID для редактирования
+    return this.http.get(`${environment.fbDbUrl}/order/${id}.json`)
+        .pipe(map((order:Order) => { //Парсинг данных
+            return {
+                ...order,
+                id
+            }
+        }))
+    
+}
+
+
+
 }

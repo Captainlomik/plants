@@ -41,7 +41,7 @@ line-height: 21px;
   font-size: 20px;
 }
 
-@mixin  sercle {
+@mixin  circle {
     margin-left: 2em;
     padding: 5px;
     border: 1px solid $green_color;
@@ -49,7 +49,7 @@ line-height: 21px;
     
 }
 
-@mixin  sercleHover {
+@mixin  circleHover {
     border: 1px dotted green;
     border-radius: 30px;
 }
@@ -72,4 +72,24 @@ line-height: 21px;
     background: #80B435;
     border: 2px solid #80B435;
     color: #ffffff;
+}
+
+@mixin buttonGreen
+{
+    width: 200px;
+    height: 40px;
+    background: #80B435;
+    border-radius: 50px;
+    display: block;
+    color: #ffff;
+    padding-top: 5px;
+    border: 2px solid #80B435;
+    font-size: 18px;
+    margin: 0;
+    text-align: center;
+}
+
+@mixin  buttonGreenHover {
+    background: #ffff;
+    color: #80B435;
 }

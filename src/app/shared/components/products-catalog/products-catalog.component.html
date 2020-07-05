@@ -1,8 +1,9 @@
 <div class="productCard" [ngClass]="{'finalProduct': finalProduct}">
   <div *ngIf="finalProduct" class="final__mark"> <h3>Закончилось :(</h3></div>
   <div  class="product__src "[routerLink]="['/product', product.id]"> 
-    <img src="{{product.img}}" alt="" >
-    <h2>{{product.title}}</h2>
+    <div class="product__img">
+    <img src="{{product.img}}" alt="" ></div>
+    <h3>{{product.title}}</h3>
  
   <p>{{product.price}} руб</p>
  </div>

@@ -8,7 +8,7 @@ import { tap, catchError } from 'rxjs/operators'
 
 
 
-@Injectable({providedIn:'root'})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
   public error$: Subject<string> = new Subject<string>()
 
@@ -34,7 +34,7 @@ export class AuthService {
 
   registration(reguser: User): Observable<any> {
     return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.apiKey}`, reguser)
-}
+  }
 
   logout() {
     this.setToken(null)

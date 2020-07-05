@@ -14,7 +14,7 @@
 <div class="container-xl">
   <div  *ngIf="productEl else loading">
    <div class="cardWrap">
-     <app-products-catalog class="cardWrap__card" [product]="product"  *ngFor="let product of productEl" ></app-products-catalog>
+     <app-products-catalog class="cardWrap__card" [product]="product"  *ngFor="let product of productEl | searchProduct:search" ></app-products-catalog>
  </div> </div>
 </div>
 <ng-template #loading>

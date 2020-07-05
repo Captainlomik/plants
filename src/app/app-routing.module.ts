@@ -1,3 +1,4 @@
+import { CartComponent } from './cart/cart.component';
 import { AuthUserGuard } from './shared/authUserGuard.service';
 import { PersonalAreaComponent } from './login/personal-area/personal-area.component';
 import { NgModule } from '@angular/core';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path:'admin', loadChildren: './admin/admin.module#AdminModule'},
   {path:'loginUser', component:LoginComponent},
    {path:'personalArea', component:PersonalAreaComponent, canActivate:  [AuthUserGuard]},
+   {path:'cart', component:CartComponent},
   { path: '404', component:NotFoundComponent },
   { path: '**', redirectTo: '404' }
  
