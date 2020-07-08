@@ -23,8 +23,9 @@ export class ProductPageComponent implements OnInit {
   closeResult = '';
   buyForm: FormGroup;
   id: string;
-  items;
- itemsArray=[]
+ itemsArray=[];
+  countProduct: any;
+
 
   constructor(private route: ActivatedRoute,
     private productServices: ProductServices,
@@ -50,10 +51,7 @@ export class ProductPageComponent implements OnInit {
         phone: new FormControl('', Validators.required),
         email: new FormControl('', [Validators.required, Validators.email]),
         count: new FormControl('', [Validators.required])
-      }
-    )
-
-    
+      })
   }
 
 
@@ -103,6 +101,8 @@ export class ProductPageComponent implements OnInit {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
+
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

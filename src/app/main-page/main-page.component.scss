@@ -280,6 +280,10 @@ order: 2;
     height: auto !important;
   }
 /*------Scree2----*/
+section.secondScreen
+{
+  height: auto !important;
+}
 .secondScreen 
 {
   margin-top: 3em;
@@ -299,6 +303,7 @@ order: 2;
 .about__img
 {
   order:2;
+  display: none;
 
 }
 .about__contacts_wrap

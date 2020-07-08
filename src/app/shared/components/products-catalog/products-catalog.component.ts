@@ -21,8 +21,9 @@ export class ProductsCatalogComponent implements OnInit {
   alertService: any;
   flagFalse: boolean;
   finalProduct: boolean = false;
-  orde$: any
-  orderIdcart=[]
+  orde$: any;
+  orderIdcart=[];
+  price:number=0;
 
   constructor(private modalService: NgbModal,
     private orderService: orderServices,
@@ -46,6 +47,7 @@ export class ProductsCatalogComponent implements OnInit {
   }
 
   submit() {
+    this.price=this.product.price*this.buyForm.value.count;
     this.orderIdcart.push(this.product.id)
     const order: Order = {
       name: this.buyForm.value.name,
@@ -56,13 +58,15 @@ export class ProductsCatalogComponent implements OnInit {
       productId: this.orderIdcart,
       productTitle: this.product.title,
       status: 'Новый заказ',
-      stat: false
+      stat: false,
+      price:this.price,
     }
     this.orderService.add(order).subscribe(() => { 
       this.countProduct()
       this.buyForm.reset();
       this.alert.success('Заказ успешно оформлен. Ожидайте звонка')
       this.modalService.dismissAll();
+      window.location.reload();
     })
     
   }

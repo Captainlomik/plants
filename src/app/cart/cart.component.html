@@ -3,16 +3,18 @@
   <p *ngIf="empty">В Вашей корзине нет товаров.</p>
   <div class="product__wrap">
     <div class="product__card" *ngFor="let products of products">
-      <div class="product__card__img">
+      <div class="product__href">
+      <div class="product__card__img" [routerLink]="['/product', products.id]">
         <img src="{{products.img}}" alt="">
       </div>
       <h3>{{products.title}}</h3>
       <p>Цена за единицу: {{products.price}} руб</p>
       <p>Количество: {{products.count}}</p>
+    </div>
       <a class="button__delete" (click)="delete(products.id)">Удалить</a>
     </div>
   </div>
-  <div class="product__cart__price"><h3>Сумма заказа: {{price}} руб </h3></div>
+  <div *ngIf="!empty" class="product__cart__price"><h3>Сумма заказа: <span>{{price}} руб </span></h3></div>
   <div class="cart__info__wrap">
     <div *ngIf="!empty" class="cart__info">
       <form [formGroup]="buyForm" novalidate (ngSubmit)="submit()">
@@ -34,7 +36,7 @@
         </div>
       </form>
     </div>
-    <div class="cart__info__deliver">
+    <div *ngIf="!empty" class="cart__info__deliver">
       <h3>Доставка: </h3>
       <p>Самовывоз осуществляется по адресу: г.Москва, Б.Моросейка, д32, офис 4. С 9.00 до 21.00</p>
     </div>

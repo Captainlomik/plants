@@ -29,6 +29,7 @@
   width: 25%;
 }
 
+
 .product__card__img
 {
 width: 150px;
@@ -50,7 +51,10 @@ margin: 0 auto;
   margin-top: 1em;
   font-weight: 600;
 }
-
+.product__href:hover h3 
+{
+  color:darkgreen;
+}
 .button__delete 
 {
   border-radius: 10px;
@@ -120,3 +124,87 @@ button:disabled {
   padding: 1rem;
 }
 
+.product__href 
+{
+  cursor: pointer;
+}
+
+.product__cart__price h3 span 
+{
+  font-size: 22px;
+  color: $green_color;
+  font-weight: 500;
+}
+
+@media (min-width:320px) and (max-width:767px) {
+.cart__wrap
+{
+  width: 95%;
+  margin: 0 auto;
+}
+.product__card
+{
+  width: 95%;
+  margin: 1em auto;
+}
+.cart__info__wrap
+{
+  width: 100%;
+  flex-wrap: wrap;
+}
+.cart__info
+{
+  width: 100%;
+}
+
+.cart__info input 
+{
+  width: 100%;
+}
+
+.cart__info button 
+{
+  width: 100%;
+}
+
+.cart__info__deliver
+{
+  margin: 1em auto;
+  width: 95%;
+}
+
+}
+
+@media (min-width:768px) and (max-width:1023px) {
+  .cart__wrap
+  {
+    width: 95%;
+    margin: 2em auto;
+  }
+.product__card
+{
+  width: auto;
+}
+
+.cart__info
+{
+  width: 60%;
+}
+
+.cart__info  input 
+{
+  width: 100%;
+}
+
+.cart__info button 
+{
+  width: 100%;
+}
+
+.cart__info__deliver
+{
+  width: 40%;
+  margin-left: 1em;
+}
+
+}

@@ -50,11 +50,13 @@ export class CartComponent implements OnInit {
   getProductsForCart() {
 
     this.cartData = JSON.parse(localStorage.getItem('cart'));
-    if (this.cartData.length == 0)
+    if (localStorage.getItem('cart')==null || this.cartData.length == 0)
       this.empty = true;
     else {
       this.cartData.forEach(element => {
-        this.productService.getById(element.Prod).subscribe(data => {
+        this.productService.getById(element.Prod).subscribe(data => { 
+          if (element.count===undefined)
+            element.count=1;
           data = {
             id: data.id,
             title: data.title,
@@ -65,7 +67,7 @@ export class CartComponent implements OnInit {
           }
           this.products.push(data);
           //this.counter=this.products.length;
-          this.price+=(data.price*element.count);
+          this.price+=(data.price*+element.count);
         })
       });
     }
@@ -80,6 +82,7 @@ export class CartComponent implements OnInit {
     window.location.reload();
   }
 
+ 
 
   submit() {
     let cartData = JSON.parse(localStorage.getItem('cart'));
@@ -90,13 +93,16 @@ export class CartComponent implements OnInit {
       phone: this.buyForm.value.phone,
       email: this.buyForm.value.email,
       productId: cartData,
-      status: 'newOrder',
+      status: 'Новый заказ',
       cart: true,
+      price:this.price,
     }
 
     this.orderService.add(order).subscribe(() => {
       this.buyForm.reset();
-      this.alert.success('Заказ успешно оформлен. Ожидайте звонка')
+      this.alert.success('Заказ успешно оформлен. Ожидайте звонка');
+      localStorage.removeItem('cart');
+      window.location.reload();
     })
 
   }

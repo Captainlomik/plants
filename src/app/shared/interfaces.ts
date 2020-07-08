@@ -37,6 +37,7 @@ export interface Order {
   status?:string;
   stat?:boolean;
   cart?:boolean;
+  price?:number;
 }
 
 export interface Email 

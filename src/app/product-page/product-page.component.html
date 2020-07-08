@@ -8,7 +8,7 @@
         <quill-view-html [content]="product.text"></quill-view-html>
       </p>
       <p> Доступное количество: {{product.count}}</p>
-      <input type="number" placeholder="Введите желаемое количество" [(ngModel)]="countProduct"> 
+      <input type="number" placeholder="Введите желаемое количество (1)" [(ngModel)]="countProduct" value=1  min="1" max={{product.count}}> 
       <p>Цена: <span class="price__color">{{product.price}} ₽</span> </p>
       <div class="buttons">
         <a class="button__order" (click)="open(content1)">Заказать</a>
