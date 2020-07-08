@@ -8,10 +8,11 @@
         <quill-view-html [content]="product.text"></quill-view-html>
       </p>
       <p> Доступное количество: {{product.count}}</p>
+      <input type="number" placeholder="Введите желаемое количество" [(ngModel)]="countProduct"> 
       <p>Цена: <span class="price__color">{{product.price}} ₽</span> </p>
       <div class="buttons">
         <a class="button__order" (click)="open(content1)">Заказать</a>
-        <a  class="button__cart" (click)="cart(product)">В корзину</a>
+        <a  class="button__cart" (click)="cart(product, countProduct)">В корзину</a>
       </div>
       <div class="Print">Адрес самовывоза: г.Москва, Б.Моросейка, д32, офис 4</div>
     </div>

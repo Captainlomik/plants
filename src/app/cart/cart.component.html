@@ -1,7 +1,42 @@
 <app-header></app-header>
-<div *ngFor="let product of product">
-{{product.id}} <br>
-{{product.count}}
-{{product.title}}
-
+<div class="cart__wrap">
+  <p *ngIf="empty">В Вашей корзине нет товаров.</p>
+  <div class="product__wrap">
+    <div class="product__card" *ngFor="let products of products">
+      <div class="product__card__img">
+        <img src="{{products.img}}" alt="">
+      </div>
+      <h3>{{products.title}}</h3>
+      <p>Цена за единицу: {{products.price}} руб</p>
+      <p>Количество: {{products.count}}</p>
+      <a class="button__delete" (click)="delete(products.id)">Удалить</a>
+    </div>
+  </div>
+  <div class="product__cart__price"><h3>Сумма заказа: {{price}} руб </h3></div>
+  <div class="cart__info__wrap">
+    <div *ngIf="!empty" class="cart__info">
+      <form [formGroup]="buyForm" novalidate (ngSubmit)="submit()">
+        <div class="modal-body">
+          <div class="form-group">
+            <h4>Ваши данные:</h4>
+            <label for="name">Имя</label>
+            <input type="text" id="name" formControlName="name">
+            <label for="surname">Фамилия</label>
+            <input type="text" id="surname" formControlName="surname">
+            <label for="email">Email</label>
+            <input type="text" id="email" formControlName="email">
+            <label for="phone">Телефон</label>
+            <input type="text" id="phone" formControlName="phone">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="button" [disabled]="buyForm.invalid" >Оформить заказ</button>
+        </div>
+      </form>
+    </div>
+    <div class="cart__info__deliver">
+      <h3>Доставка: </h3>
+      <p>Самовывоз осуществляется по адресу: г.Москва, Б.Моросейка, д32, офис 4. С 9.00 до 21.00</p>
+    </div>
+  </div>
 </div>

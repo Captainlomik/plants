@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { AlertService } from './../shared/services/alert.service';
 import { Order } from './../../shared/interfaces';
 import { orderServices } from './../../shared/order.services';
@@ -16,15 +17,14 @@ export class OrderPageComponent implements OnInit {
   borderColor: boolean = true;
   flag: boolean = true;
 
+
   constructor(private orderService: orderServices,
     private alert: AlertService) { }
 
   ngOnInit() {
-    /*this.orderService.getAll().subscribe(orders => {
-      this.orders = orders;
-    })*/
-    this.sortOrder(this.flag)
+    this.sortOrder(this.flag);
   }
+
 
   sortOrder(flag: boolean) {
     this.orderService.getAll().subscribe(order => {
@@ -38,6 +38,7 @@ export class OrderPageComponent implements OnInit {
         return a.stat - b.stat;
       else
         return b.stat - a.stat;
+        
     })
     return order;
   }

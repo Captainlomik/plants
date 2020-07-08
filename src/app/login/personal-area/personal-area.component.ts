@@ -19,19 +19,9 @@ export class PersonalAreaComponent implements OnInit {
 
     
   ngOnInit() {
-    this.order();
   }
   
 
-  order ()
-  {
-    let orderid=localStorage.getItem('nameOwner');
-    console.log(orderid)
-    this.orderservice.getAll().subscribe(order=>
-    {
-      this.ngOnInit();
-    });
-  }
 
   logout(event)
   {

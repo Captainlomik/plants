@@ -5,18 +5,23 @@
 
 <div class="orderFlex">
   <div *ngFor="let order of orders | orderSearch:search">
+
     <div class="orderWrap" [ngClass]="{'orangeColor': order.stat}">
       <p>Id заказа: {{order.id}}</p>
       <h4>Имя: {{order.name}}</h4>
       <p>Фамилия: {{order.surname}}</p>
       <p>email: {{order.email}}</p>
+    
       <p>Телефон: {{order.phone}}</p>
-      <p>Продукт: {{order.productTitle}}</p>
-      <p>Количество: {{order.count}}</p>
+      <p >Продукт:<span *ngFor="let prod of order.productId">{{prod.Prodname}} - {{prod.count}}<br></span> {{order.productTitle}}</p>
+      <p >Количество: {{order.count}}</p>
       <p>Статус: {{order.status}}</p>
        <a class="btn_del" (click)="delete(order.id)">Завершить</a>
        <a class="btn__ord" (click)="accept(order)">Принять</a>
-    </div>
-   
+    
+   </div>
+
   </div>
 </div>
+
+

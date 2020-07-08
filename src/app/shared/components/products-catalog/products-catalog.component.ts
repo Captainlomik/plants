@@ -22,6 +22,7 @@ export class ProductsCatalogComponent implements OnInit {
   flagFalse: boolean;
   finalProduct: boolean = false;
   orde$: any
+  orderIdcart=[]
 
   constructor(private modalService: NgbModal,
     private orderService: orderServices,
@@ -45,20 +46,19 @@ export class ProductsCatalogComponent implements OnInit {
   }
 
   submit() {
+    this.orderIdcart.push(this.product.id)
     const order: Order = {
       name: this.buyForm.value.name,
       surname: this.buyForm.value.surname,
       phone: this.buyForm.value.phone,
       email: this.buyForm.value.email,
       count: this.buyForm.value.count,
-      productId: this.product.id,
+      productId: this.orderIdcart,
       productTitle: this.product.title,
       status: 'Новый заказ',
       stat: false
     }
-    this.orderService.add(order).subscribe(() => {
-      localStorage.setItem('nameOwner', this.buyForm.value.surname);
-      
+    this.orderService.add(order).subscribe(() => { 
       this.countProduct()
       this.buyForm.reset();
       this.alert.success('Заказ успешно оформлен. Ожидайте звонка')
@@ -67,10 +67,7 @@ export class ProductsCatalogComponent implements OnInit {
     
   }
 
-  getLocaleId(order:Order)
-  {
-
-  }
+ 
 
   countProduct() {
     this.productServices.update({

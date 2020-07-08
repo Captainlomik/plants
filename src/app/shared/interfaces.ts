@@ -31,11 +31,12 @@ export interface Order {
   surname: string;
   email: string;
   phone: string;
-  productId?: string;
+  productId?: {};
   productTitle?: string;
-  count: number;
+  count?: number;
   status?:string;
   stat?:boolean;
+  cart?:boolean;
 }
 
 export interface Email 

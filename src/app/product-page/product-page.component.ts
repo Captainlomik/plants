@@ -18,33 +18,31 @@ import { switchMap } from 'rxjs/operators';
 })
 export class ProductPageComponent implements OnInit {
 
-@Input() product:Product[]=[];
+  @Input() product: Product[] = [];
   product$: Observable<Product>;
   closeResult = '';
   buyForm: FormGroup;
-  cartData=[];
   id: string;
-items
+  items;
+ itemsArray=[]
+
   constructor(private route: ActivatedRoute,
     private productServices: ProductServices,
     private modalService: NgbModal,
     private orderService: orderServices,
-    private alert: AlertService, 
-    private cartservice:cartServices) {
+    private alert: AlertService,
+    private cartservice: cartServices) {
 
-      this.product$ = this.route.params
+    this.product$ = this.route.params
       .pipe(switchMap((params: Params) => {
         let product = this.productServices.getById(params['id']);
         return product;
       }))
-    
+
   }
 
 
   ngOnInit() {
-
-    
-
     this.buyForm = new FormGroup(
       {
         name: new FormControl('', Validators.required),
@@ -54,9 +52,11 @@ items
         count: new FormControl('', [Validators.required])
       }
     )
+
+    
   }
 
-   
+
 
   submit() {
     const order: Order = {
@@ -65,7 +65,8 @@ items
       phone: this.buyForm.value.phone,
       email: this.buyForm.value.email,
       count: this.buyForm.value.count,
-      status: 'newOrder'
+      status: 'newOrder',
+      cart:false,
     }
 
     this.orderService.add(order).subscribe(() => {
@@ -76,9 +77,21 @@ items
 
   }
 
-  cart(product:Product)
-  {
-        
+  cart(product: Product, countProduct:number) {
+   
+
+    let cart = {
+      'Prod': product.id,
+      'Prodname':product.title,
+      'count': countProduct
+    }
+  
+    let itemsArray = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+    localStorage.setItem('cart', JSON.stringify(itemsArray))
+    const data = JSON.parse(localStorage.getItem('cart'))
+    itemsArray.push(cart)
+    localStorage.setItem('cart', JSON.stringify(itemsArray))
+    this.alert.success('Заказ добавлен в корзину');
   }
 
 

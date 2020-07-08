@@ -1,4 +1,122 @@
+@import 'var';
+@import 'mixins';
+
 ::ng-deep .menu__wrapper
 {
   position: relative !important;
 }
+
+.cart__wrap 
+{
+  width:80%;
+  margin: 2em auto;
+ 
+}
+
+.product__wrap
+{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap:wrap;
+}
+
+.product__card
+{
+  border: 1px solid $green_color;
+  border-radius: 10px;
+  padding: 20px;
+  width: 25%;
+}
+
+.product__card__img
+{
+width: 150px;
+height: 100px;
+margin: 0 auto;
+}
+
+.product__card__img img 
+{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product__card h3 
+{
+  color: $green_color;
+  text-align: center;
+  margin-top: 1em;
+  font-weight: 600;
+}
+
+.button__delete 
+{
+  border-radius: 10px;
+  border:1px solid red;
+padding: 5px;
+}
+
+.cart__info 
+{
+ 
+  width: 50%;
+}
+
+.cart__info input
+{
+  margin-bottom:1em;
+  border:1px solid $green_color;
+  border-radius:10px;
+  display: block;
+  width: 70%;
+}
+
+.cart__info__wrap 
+{
+  display: flex;
+  align-items:center;
+  margin-top: 1em;
+}
+
+.cart__info__deliver
+{
+  width: 40%;
+}
+
+.cart__info__deliver h3
+{
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.cart__info__deliver p
+{
+ font-size: 18px;
+}
+.modal-footer 
+{
+  justify-content: flex-start;
+}
+
+.modal-footer button
+{
+  @include buttonGreen;
+  padding-top: 0;
+}
+.modal-footer button:hover
+{
+  @include buttonGreenHover;
+}
+
+button:disabled {
+  opacity: 50%;
+}
+
+.product__cart__price
+{
+  margin-top: 2em;
+  padding: 1rem;
+}
+
