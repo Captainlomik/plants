@@ -1,14 +1,12 @@
+import { element } from 'protractor';
 import { AlertService } from './../admin/shared/services/alert.service';
 import { orderServices } from './../shared/order.services';
-import { Content } from '@angular/compiler/src/render3/r3_ast';
-import { switchMap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 import { Product, Order } from './../shared/interfaces';
 import { ProductServices } from './../shared/product.services';
 import { cartServices } from './../shared/cart.services';
 import { Component, OnInit, Input } from '@angular/core';
-import { element } from 'protractor';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -25,8 +23,8 @@ export class CartComponent implements OnInit {
   id: string;
   orderEl;
   empty: boolean = false;
-  price:number=0;
-
+  price: number = 0;
+  allCount = 0
 
   constructor(private cartService: cartServices,
     private productService: ProductServices,
@@ -50,13 +48,13 @@ export class CartComponent implements OnInit {
   getProductsForCart() {
 
     this.cartData = JSON.parse(localStorage.getItem('cart'));
-    if (localStorage.getItem('cart')==null || this.cartData.length == 0)
+    if (localStorage.getItem('cart') == null || this.cartData.length == 0)
       this.empty = true;
     else {
       this.cartData.forEach(element => {
-        this.productService.getById(element.Prod).subscribe(data => { 
-          if (element.count===undefined)
-            element.count=1;
+        this.productService.getById(element.Prod).subscribe(data => {
+          if (element.count === undefined)
+            element.count = 1;
           data = {
             id: data.id,
             title: data.title,
@@ -67,7 +65,9 @@ export class CartComponent implements OnInit {
           }
           this.products.push(data);
           //this.counter=this.products.length;
-          this.price+=(data.price*+element.count);
+          this.price += (data.price * +element.count);
+          this.allCount += element.count;
+
         })
       });
     }
@@ -82,7 +82,7 @@ export class CartComponent implements OnInit {
     window.location.reload();
   }
 
- 
+
 
   submit() {
     let cartData = JSON.parse(localStorage.getItem('cart'));
@@ -95,10 +95,11 @@ export class CartComponent implements OnInit {
       productId: cartData,
       status: 'Новый заказ',
       cart: true,
-      price:this.price,
+      price: this.price,
     }
 
     this.orderService.add(order).subscribe(() => {
+      console.log(order.id);
       this.buyForm.reset();
       this.alert.success('Заказ успешно оформлен. Ожидайте звонка');
       localStorage.removeItem('cart');
@@ -107,5 +108,5 @@ export class CartComponent implements OnInit {
 
   }
 
-  
+
 }

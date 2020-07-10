@@ -66,7 +66,6 @@ export class ProductsCatalogComponent implements OnInit {
       this.buyForm.reset();
       this.alert.success('Заказ успешно оформлен. Ожидайте звонка')
       this.modalService.dismissAll();
-      window.location.reload();
     })
     
   }
@@ -82,7 +81,6 @@ export class ProductsCatalogComponent implements OnInit {
       count: this.product.count - this.buyForm.value.count,
       img: this.product.img
     }).subscribe(() => {
-      console.log(this.product.count)
     });
   }
 

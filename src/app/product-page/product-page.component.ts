@@ -23,8 +23,9 @@ export class ProductPageComponent implements OnInit {
   closeResult = '';
   buyForm: FormGroup;
   id: string;
- itemsArray=[];
-  countProduct: any;
+  itemsArray = [];
+  prod:Product;
+
 
 
   constructor(private route: ActivatedRoute,
@@ -63,8 +64,8 @@ export class ProductPageComponent implements OnInit {
       phone: this.buyForm.value.phone,
       email: this.buyForm.value.email,
       count: this.buyForm.value.count,
-      status: 'newOrder',
-      cart:false,
+      status: 'Новый заказ',
+      cart: false,
     }
 
     this.orderService.add(order).subscribe(() => {
@@ -75,21 +76,34 @@ export class ProductPageComponent implements OnInit {
 
   }
 
-  cart(product: Product, countProduct:number) {
-   
+  cart(product: Product, countProduct: number) {
+
 
     let cart = {
       'Prod': product.id,
-      'Prodname':product.title,
+      'Prodname': product.title,
       'count': countProduct
     }
-  
+
     let itemsArray = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
     localStorage.setItem('cart', JSON.stringify(itemsArray))
     const data = JSON.parse(localStorage.getItem('cart'))
     itemsArray.push(cart)
     localStorage.setItem('cart', JSON.stringify(itemsArray))
     this.alert.success('Заказ добавлен в корзину');
+  }
+
+
+  countProduct() {
+    this.productServices.update({
+      id: this.prod.id,
+      title: this.prod.title,
+      text: this.prod.text,
+      price: this.prod.price,
+      count: this.prod.count - this.buyForm.value.count,
+      img: this.prod.img
+    }).subscribe(() => {
+    });
   }
 
 

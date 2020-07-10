@@ -24,6 +24,7 @@ export class CatalogPageComponent implements OnInit {
 
   fetchProduct(flag: boolean, type: number) {
     this.productServices.getAll().subscribe(product => {
+      console.log(product);
       this.productEl = this.sort1(product, flag, type);
     })
 

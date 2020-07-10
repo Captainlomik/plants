@@ -3,8 +3,8 @@
   <p *ngIf="empty">В Вашей корзине нет товаров.</p>
   <div class="product__wrap">
     <div class="product__card" *ngFor="let products of products">
-      <div class="product__href">
-      <div class="product__card__img" [routerLink]="['/product', products.id]">
+      <div class="product__href" [routerLink]="['/product', products.id]">
+      <div class="product__card__img" >
         <img src="{{products.img}}" alt="">
       </div>
       <h3>{{products.title}}</h3>
